@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!-------
 Jay
 ------>
@@ -36,7 +37,7 @@ Jay
 		<!--- Navbar -->
 	<nav class="navbar navbar-expand-lg border-bottom border-secondary" style="background: linear-gradient(to bottom, #1a1c1a 0%, #1a1c1a 100%);">
 	    <div class="container rounded mx-auto d-block"> <!--- Align center --->
-		    <a class="navbar-brand logo mt-2" href="main.html">
+		    <a class="navbar-brand logo mt-2" href="index.php">
 			  <img src="assets/img/favicons/logo-Drift.png" alt="Logo" class="logo-light mx-auto">
 			</a>
 		</div>
@@ -50,12 +51,12 @@ Jay
 		<div class="container  w3-container w3-center w3-animate-opacity w3-animate-top">
 		  <span class="login100-form--title p-b-41 text-white">We are so sorry</span>
 		  <br><br>
-		  <p style="color:white;">Your account has been failed to register<br>Please try again.</p>
+		  <p style="color:white;">Your account has been failed to register<br>Please try again.<br><br>Error:<br><?php echo $_SESSION["errormessage"]; ?></p>
 			<!---<label for="fname" style="color:white"><b><br><br>First Name</b></label>
 			<br>-->
 		  <br>
 		  
-		  <a class="btn btn-sm btn-warning text-black mr-2" href="Register.html" data-toggle="modal" data-target="#userLogin">Return to Sign Up Page</a>
+		  <a class="btn btn-sm btn-warning text-black mr-2" href="register.php" data-toggle="modal" data-target="#userLogin">Return to Sign Up Page</a>
 		  
 		  <br>
 		  </div>

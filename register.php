@@ -38,7 +38,7 @@ Jay
 		<!--- Navbar -->
 	<nav class="navbar navbar-expand-lg border-bottom border-secondary" style="background: linear-gradient(to bottom, #1a1c1a 0%, #1a1c1a 100%);">
 		<div class="container rounded mx-auto d-block"> <!--- Align center --->
-		    <a class="navbar-brand logo mt-2" href="main.html">
+		    <a class="navbar-brand logo mt-2" href="index.php">
 			  <img src="assets/img/favicons/logo-Drift.png" alt="Logo" class="logo-light mx-auto">
 			</a>		  
 		</div>
@@ -47,11 +47,11 @@ Jay
 	<div class="container text-white mt-5 mb-5">
 		<div class="col-md-7 col-lg-8 p-4" style="background-color:#1a1c1a;">
 		  <h4 class="mb-3">Register</h4>
-		  <form class="needs-validation" novalidate action="registersuccessful.html">
+		  <form class="needs-validation" novalidate action="assets/php/registeruser.php" method="post">
 			<div class="row g-3">
 			  <div class="col-sm-6">
 				<label for="firstName" class="form-label">First name</label>
-				<input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+				<input type="text" class="form-control" id="firstName" placeholder="" value="" required name="firstname">
 				<div class="invalid-feedback">
 				  Valid first name is required.
 				</div>
@@ -59,7 +59,7 @@ Jay
 
 			  <div class="col-sm-6">
 				<label for="lastName" class="form-label">Last name</label>
-				<input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+				<input type="text" class="form-control" id="lastName" placeholder="" value="" required name="lastname">
 				<div class="invalid-feedback">
 				  Valid last name is required.
 				</div>
@@ -69,7 +69,7 @@ Jay
 				<label for="username" class="form-label">Username</label>
 				<div class="input-group">
 				  <span class="input-group-text">@</span>
-				  <input type="text" class="form-control" id="username" placeholder="Username" required>
+				  <input type="text" class="form-control" id="username" placeholder="Username" required name="username">
 				<div class="invalid-feedback">
 					Your username is required.
 				  </div>
@@ -78,7 +78,7 @@ Jay
 
 			  <div class="col-12">
 				<label for="email" class="form-label">Email</label>
-				<input type="email" class="form-control" id="email" required>
+				<input type="email" class="form-control" id="email" required name="email">
 				<div class="invalid-feedback">
 				  Please enter a valid email address.
 				</div>
@@ -87,7 +87,7 @@ Jay
 			  <div class="col-12">
 				<label for="inputPassword" class="form-label">Password</label>
 				<div class="col-sm-10">
-				  <input type="password" class="form-control" id="inputPassword" required>
+				  <input type="password" class="form-control" id="inputPassword" required name="password">
 				</div>
 				<div class="invalid-feedback">
 				  Please fill this field.
@@ -97,7 +97,7 @@ Jay
 			  <div class="col-12">
 				<label for="inputPassword" class="form-label">Retype the Password</label>
 				<div class="col-sm-10">
-				  <input type="password" class="form-control" id="inputPassword" required>
+				  <input type="password" class="form-control" id="inputPassword" required name="retypepassword">
 				</div>
 				<div class="invalid-feedback">
 				  Please fill this field
@@ -105,9 +105,7 @@ Jay
 			  </div>
 
 			</div>
-			<a href="registersuccessful.html">
 			  <button class="btn btn-warning btn-lg mx-auto mt-3" type="submit" href=>Sign Up</button>
-			</a>
 		  </form>
 		</div>
 	</div>

@@ -36,7 +36,7 @@ Jay
 		<!--- Navbar -->
 	<nav class="navbar navbar-expand-lg border-bottom border-secondary" style="background: linear-gradient(to bottom, #1a1c1a 0%, #1a1c1a 100%);">
 	    <div class="container rounded mx-auto d-block"> <!--- Align center --->
-		    <a class="navbar-brand logo mt-2" href="main.html">
+		    <a class="navbar-brand logo mt-2" href="index.php">
 			  <img src="assets/img/favicons/logo-Drift.png" alt="Logo" class="logo-light mx-auto">
 			</a>
 		</div>
@@ -55,7 +55,7 @@ Jay
 			<br>-->
 		  <br>
 		  
-		  <a class="btn btn-sm btn-warning text-black mr-2" href="signin.html" data-toggle="modal" data-target="#userLogin">Proceed To Sign In</a>
+		  <a class="btn btn-sm btn-warning text-black mr-2" href="signin.php" data-toggle="modal" data-target="#userLogin">Proceed To Sign In</a>
 		  
 		  <br>
 		  </div>
