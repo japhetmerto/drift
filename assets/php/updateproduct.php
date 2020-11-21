@@ -50,7 +50,7 @@
 		$stmt = $connection -> prepare("UPDATE store_console SET product_name = ?, variants = ?, discount_offer = ?, price = ?, discount_price = ?, stock = ? WHERE product_id = ?");
 		$stmt -> bind_param("sssssss", $product_name, $variants, $discount_offer, $price, $discount_price, $stock, $_SESSION["product_id"]);
 		$stmt -> execute();
-	} elseif ($type == "Accessories") {
+	} else {
 		$stmt = $connection -> prepare("UPDATE store_accessories SET product_name = ?, variants = ?, discount_offer = ?, price = ?, discount_price = ?, stock = ? WHERE product_id = ?");
 		$stmt -> bind_param("sssssss", $product_name, $variants, $discount_offer, $price, $discount_price, $stock, $_SESSION["product_id"]);
 		$stmt -> execute();

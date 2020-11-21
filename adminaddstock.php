@@ -1,3 +1,11 @@
+<?php
+    session_start();
+
+    $_SESSION["product_id"] = $_GET["product_id"];
+    $_SESSION["type"] = $_GET["type"];
+
+    require_once 'assets/php/showaddstock.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -108,13 +116,13 @@ div.content {
 <br>
 
 <center>
-<form class="needs-validation" >
+<form class="needs-validation" method="post" action="assets/php/updatestock.php" >
 			<div class="row g-3">
 			  
 
 			  <div class="col-12">
 				<label for="productName" class="form-label">Product Name</label>
-				<input type="text" class="form-control" id="productName" placeholder="Persone Royale 3" value="" disabled>
+				<input type="text" class="form-control" id="productName" placeholder="" value="<?php echo $_SESSION["product_name"]; ?>" disabled name="product_name">
 				<div class="invalid-feedback">
 				  Valid Product Name is required.
 				</div>
@@ -125,7 +133,7 @@ div.content {
 <br>
 			  <div class="col-12">
 				<label for="stknum" class="form-label">Stock Number</label>
-				<input type="num" class="form-control" id="stknum" required>
+				<input type="num" class="form-control" id="stknum" required value="<?php echo $_SESSION["stock"]; ?>" name="stock">
 				<div class="invalid-feedback">
 				  Please enter a valid Num.
 				</div>
@@ -137,12 +145,10 @@ div.content {
 
 			</div>
 			<!-- Buttons -->
-			<a href=".html">
 			  <button class="btn btn-warning btn-lg mx-auto mt-3" type="submit" href=>Update Product</button>
-			</a>
 			
 		  </form>
-		  <a href="adminorder.html">
+		  <a href="adminorderstock.php">
 			  <button class="btn btn-warning btn-lg mx-auto mt-3" style="background-color:red;color:white;">Cancel</button>
 			</a>
 </center>

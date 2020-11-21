@@ -1,3 +1,7 @@
+<?php
+    require_once "assets/php/utilities.php";
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -91,7 +95,7 @@ div.content {
 <body>
 <div class="sidebar max-width auto" style="color:#000;background-color:#bdc3c7">
 	<center>
-  <h3>Hello, Jay!</h3>
+  <h3>Hello, <?php showAdminName(); ?></h3>
   <a  href="admindash.html" ><i class="fa fa-dashboard"></i>&nbsp;&nbsp;Home</a>
   <a href="adminartnw.html"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;Article & News</a>
   <a href="adminprdlist.html"><i class="fa fa-list-ul"></i>&nbsp;&nbsp;Product List</a>
@@ -127,94 +131,7 @@ div.content {
                       </th>
   </thead >
   <tbody>
-    <tr>
-                        
-                        <td>
-                          Persone Royale 3
-                        </td>
-                        
-						<td>
-						10
-						</td>
-						 
-                        <td class="text-right">
-                          <a href="add-stock.html" style="color:black;"><i class="fa fa-plus" style="cursor:pointer;">Add Stock</i></a>
-						
-                        </td>
-						
-                      </tr>
-                      <tr>
-                        
-                        <td>
-                          The Last Of Us Part 2
-                        </td>
-                        
-						<td>
-						10
-						</td>
-						 
-                        <td class="text-right">
-                          <a href="add-stock.html" style="color:black;"><i class="fa fa-plus" style="cursor:pointer;">Add Stock</i></a>
-                        </td>
-                      </tr>
-					  <tr>
-                        
-                        <td>
-                          Resident Evil 3
-                        </td>
-                        
-						<td>
-						10
-						</td>
-						 
-                        <td class="text-right">
-                          <a href="add-stock.html" style="color:black;"><i class="fa fa-plus" style="cursor:pointer;">Add Stock</i></a>
-                        </td>
-                      </tr>
-					  <tr>
-                        
-                        <td>
-                          PlayStation 5
-                        </td>
-                        
-						<td>
-						15
-						</td>
-						 
-                        <td class="text-right">
-                          <a href="add-stock.html" style="color:black;"><i class="fa fa-plus" style="cursor:pointer;">Add Stock</i></a>
-                        </td>
-                      </tr>
-					  <tr>
-                        
-                        <td>
-                          XBOX Controller
-                        </td>
-                        
-						<td>
-						15
-						</td>
-						 
-                        <td class="text-right">
-                          <a href="add-stock.html" style="color:black;"><i class="fa fa-plus" style="cursor:pointer;">Add Stock</i></a>
-                        </td>
-                      </tr>
-					  <tr>
-                        
-                        <td>
-                          PlayStation Headphones
-                        </td>
-                        
-						<td>
-						15
-						</td>
-						 
-                        <td class="text-right">
-                          <a href="add-stock.html" style="color:black;"><i class="fa fa-plus" style="cursor:pointer;">Add Stock</i></a>
-						
-                        </td>
-                      </tr>
-					  
+    <?php require 'assets/php/showproductstock.php'; ?>  
   </tbody>
 </table>
 </div>
