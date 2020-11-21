@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!-------
 Jay
 ------>
@@ -37,7 +36,7 @@ Jay
 		<!--- Navbar -->
 	<nav class="navbar navbar-expand-lg border-bottom border-secondary" style="background: linear-gradient(to bottom, #1a1c1a 0%, #1a1c1a 100%);">
 	    <div class="container rounded mx-auto d-block"> <!--- Align center --->
-		    <a class="navbar-brand logo mt-2" href="index.php">
+		    <a class="navbar-brand logo mt-2" href="main.html">
 			  <img src="assets/img/favicons/logo-Drift.png" alt="Logo" class="logo-light mx-auto">
 			</a>
 		</div>
@@ -49,14 +48,14 @@ Jay
 		<h3><br></h3>
 		<form class="modal-content animate"  method="post" style="background:black;border-radius: 25px;max-width:50%;padding: 70px 0;text-align: center;">
 		<div class="container  w3-container w3-center w3-animate-opacity w3-animate-top">
-		  <span class="login100-form--title p-b-41 text-white">We are so sorry</span>
+		  <span class="login100-form--title p-b-41 text-white">Error</span>
 		  <br><br>
-		  <p style="color:white;">Your account has been failed to register<br>Please try again.<br><br>Error:<br><?php echo $_SESSION["errormessage"]; destroy_session_and_data(); ?></p>
+		  <p style="color:white;">Invalid Username and Password<br>Please try again.</p>
 			<!---<label for="fname" style="color:white"><b><br><br>First Name</b></label>
 			<br>-->
 		  <br>
 		  
-		  <a class="btn btn-sm btn-warning text-black mr-2" href="register.php" data-toggle="modal" data-target="#userLogin">Return to Sign Up Page</a>
+		  <a class="btn btn-sm btn-warning text-black mr-2" href="signin.php" data-toggle="modal" data-target="#userLogin">Return to Sign In Page</a>
 		  
 		  <br>
 		  </div>

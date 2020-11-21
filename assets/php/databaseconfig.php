@@ -1,10 +1,10 @@
 <?php
 	// host name
-	$hn = 'localhost';
+	$hn = "localhost";
 	// database name
-	$db = 'drift';
+	$db = "drift";
 	// username
-	$un = 'root';
+	$un = "root";
 	// password
-	$pw = '';
+	$pw = "";
 ?>

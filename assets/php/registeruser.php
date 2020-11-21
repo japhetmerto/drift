@@ -1,13 +1,15 @@
 <?php
-	require_once 'databaseconfig.php';
-	require_once 'utilities.php';
+	require_once "databaseconfig.php";
+	require_once "utilities.php";
 
 	session_start();
 
 	// Connect to the database
 	$connection = new mysqli($hn, $un, $pw, $db);
- 	if ($connection -> connect_error)
+
+ 	if ($connection -> connect_error) {
  		die("Database Connection Error");
+ 	}
 
 	// Get the values from POST
 	$firstname = mysql_entities_fix_string($connection, $_POST["firstname"]);
@@ -31,7 +33,7 @@
 
 	// If password did not match
 	if (strcmp($password, $retypepassword) != 0) {
-		$_SESSION["errormessage"] .= "Password did not match <br>";
+		$_SESSION["errormessage"] .= "Password did not match";
 	}
 
 	// Check if the password and retypepassword are the same
@@ -41,18 +43,17 @@
 
 		// Generate random ID
 		$bytes= random_bytes(5);
-		$randomID = '';
-		$randomID .='USER-';
+		$randomID = "";
+		$randomID .="USER-";
 		$randomID .= bin2hex($bytes);
 
 		$userType = "User";
 
 		// Insert values
-		$stmt = $connection -> prepare('INSERT INTO user_details (user_id, user_type, fname, lname, username, password, email) VALUES (?, ?, ?, ?, ?, ?, ?)');
- 		$stmt -> bind_param('sssssss', $randomID, $userType, $firstname, $lastname, $username, $hash, $email);
+		$stmt = $connection -> prepare("INSERT INTO user_details (user_id, user_type, fname, lname, username, password, email) VALUES (?, ?, ?, ?, ?, ?, ?)");
+ 		$stmt -> bind_param("sssssss", $randomID, $userType, $firstname, $lastname, $username, $hash, $email);
  		$stmt -> execute();
-		$stmt -> close();
-
+ 		
 		// Redirect to registersuccessful
 		header("Location: ../../registersuccessful.php");
 	} else {
@@ -60,4 +61,7 @@
 		header("Location: ../../registerfail.php");
 	}
 
+	// Closing connection
+	$stmt -> close();
+	$connection -> close();
 ?>
