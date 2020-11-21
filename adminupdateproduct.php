@@ -1,3 +1,11 @@
+<?php
+	session_start();
+
+	$_SESSION["product_id"] = $_GET["product_id"];
+	$_SESSION["type"] = $_GET["type"];
+
+	require_once 'assets/php/showupdateproduct.php'
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -107,17 +115,17 @@ div.content {
 <section style="background-color:;">
 <center>
 <br>
-<h2>Add New Product</h2>
+<h2>Update Product</h2>
 <br>
 
 <center>
-<form class="needs-validation" >
+<form class="needs-validation" method="post" action="assets/php/updateproduct.php" >
 			<div class="row g-3">
 			  
 
 			  <div class="col-12">
 				<label for="productName" class="form-label">Product Name</label>
-				<input type="text" class="form-control" id="productName" placeholder="" value="" required>
+				<input type="text" class="form-control" id="productName" placeholder="" value="<?php echo $_SESSION["product_name"]; ?>" required name="product_name">
 				<div class="invalid-feedback">
 				  Valid Product Name is required.
 				</div>
@@ -130,7 +138,7 @@ div.content {
 				<label for="productDesc" class="form-label">Product Description</label>
 				<div class="input-group">
 				  
-				  <textarea type="text" class="form-control" id="productDesc" placeholder="" rows="10" cols="50" required></textarea>
+				  <textarea type="text" class="form-control" id="productDesc" placeholder="" rows="10" cols="50" required name="product_description"><?php echo $_SESSION["product_description"]; ?></textarea>
 				<div class="invalid-feedback">
 					Your Description is required.
 				  </div>
@@ -139,7 +147,7 @@ div.content {
 			  
 			  <div class="col-sm-4">
 				<label for="stknum" class="form-label">Stock Number</label>
-				<input type="num" class="form-control" id="stknum" required>
+				<input type="number" class="form-control" id="stknum" required value="<?php echo $_SESSION["stock"]; ?>" name="stock">
 				<div class="invalid-feedback">
 				  Please enter a valid Num.
 				</div>
@@ -147,7 +155,7 @@ div.content {
 			  
 			  <div class="col-sm-4">
 				<label for="productPrice" class="form-label">Product Price</label>
-				<input type="text" class="form-control" id="productPrice" required>
+				<input type="number" class="form-control" id="productPrice" required value="<?php echo $_SESSION["price"]; ?>" name="price">
 				<div class="invalid-feedback">
 				  Please enter a valid Price.
 				</div>
@@ -155,31 +163,31 @@ div.content {
 			  
 			  <div class="col-sm-4">
 				<label for="productTempPrice" class="form-label">Discount Offer</label>
-				<input type="text" class="form-control" id="productTempPrice" required>
+				<input type="number" class="form-control" id="productTempPrice" required value="<?php echo $_SESSION["discount_offer"]; ?>" name="discount_offer">
 				<div class="invalid-feedback">
-				  Please enter a valid Temp Price.
+				  Please enter a valid Number.
 				</div>
 			  </div>
 			  
 			  <div class="col-sm-4">
 				<label for="productTempPrice" class="form-label">Discount Price</label>
-				<input type="text" class="form-control" id="productTempPrice" required>
+				<input type="number" class="form-control" id="productTempPrice" required value="<?php echo $_SESSION["discount_price"]; ?>" name="discount_price">
 				<div class="invalid-feedback">
-				  Please enter a valid Temp Price.
+				  Please enter a valid Price.
 				</div>
 			  </div>
 			  
 			  <div class="col-sm-4">
 				<label for="productTempPrice" class="form-label">Platform</label>
-				<input type="text" class="form-control" id="productTempPrice" required>
+				<input type="text" class="form-control" id="productTempPrice" required value="<?php echo $_SESSION["platform"]; ?>" name="platform">
 				<div class="invalid-feedback">
-				  Please enter a valid Temp Price.
+				  Please enter a valid Platform.
 				</div>
 			  </div>
 			  
 			  <div class="col-sm-4">
 				<label for="imageLink" class="form-label">Image Link</label>
-				<input type="text" class="form-control" id="imageLink" required>
+				<input type="text" class="form-control" id="imageLink" required value="<?php echo $_SESSION["image_link"]; ?>" name="image_link">
 				<div class="invalid-feedback">
 				  Please enter a valid Image Link.
 				</div>
@@ -187,7 +195,7 @@ div.content {
 			  
 			  <div class="col-sm-4">
 				<label for="imageLink" class="form-label">Product Image</label>
-				<input type="text" class="form-control" id="imageLink" required>
+				<input type="text" class="form-control" id="imageLink" required value="<?php echo $_SESSION["product_image"]; ?>" name="product_image">
 				<div class="invalid-feedback">
 				  Please enter a valid Image Link.
 				</div>
@@ -195,7 +203,7 @@ div.content {
 			  
 			  <div class="col-sm-4">
 				<label for="imageLink" class="form-label">Variant</label>
-				<input type="text" class="form-control" id="imageLink" required>
+				<input type="text" class="form-control" id="imageLink" required value="<?php echo $_SESSION["variants"]; ?>" name="variants">
 				<div class="invalid-feedback">
 				  Please enter a valid input.
 				</div>
@@ -203,42 +211,38 @@ div.content {
 			  
 			  <div class="col-sm-4">
 				<label for="date" class="form-label">Release Date</label>
-				<input type="date" class="form-control" id="date" required>
+				<input type="date" class="form-control" id="date" required value="<?php echo $_SESSION["date_release"]; ?>" name="date_release">
 				<div class="invalid-feedback">
 				  Please enter a valid Date.
 				</div>
 			  </div>
 			  
-			  <div class="col-sm-6">
+			  <div class="col-sm-4">
+				<label for="productTempPrice" class="form-label">Developer</label>
+				<input type="text" class="form-control" id="productTempPrice" required value="<?php echo $_SESSION["developer"]; ?>" name="developer">
+				<div class="invalid-feedback">
+				  Please enter a Developer Name.
+				</div>
+			  </div>
+			  
+			  <div class="col-sm-4">
 			  <label for="productCategory" class="form-label">Category</label><br>
-						<select name="Select One">
-				<option value="gm">Games</option>
-				<option value="cs">Console</option>
-				<option value="csa">Console Accessory</option>
+						<select name="type">
+				<?php echo $_SESSION["type"]; ?>
 				</select>
 			  </div>
 			  
-			  <div class="form-group col-sm-6 mt-5">
-				<div class="form-check">
-				  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-				  <label class="form-check-label" for="invalidCheck">
-					Membership exlusive
-				  </label>
-				  <div class="invalid-feedback">
-					You must tick before submitting.
-				  </div>
-				</div>
+			  <div class="form-group col-sm-4 mt-5">
+				  <?php echo $_SESSION["isMembershipExclusive"]; ?>
 			  </div>
 			  
 
 			</div>
 			<!-- Buttons -->
-			<a href=".html">
-			  <button class="btn btn-warning btn-lg mx-auto mt-3" type="submit" href=>Add Product</button>
-			</a>
+			  <button class="btn btn-warning btn-lg mx-auto mt-3" type="submit" href=>Update</button>
 			
 		  </form>
-		  <a href="adminprdlist.html">
+		  <a href="adminproductlist.php">
 			  <button class="btn btn-warning btn-lg mx-auto mt-3" style="background-color:red;color:white;">Cancel</button>
 			</a>
 </center>

@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+    require_once "assets/php/utilities.php";
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,7 +95,7 @@ div.content {
 <body>
 <div class="sidebar max-width auto" style="color:#000;background-color:#bdc3c7">
 	<center>
-  <h3>Hello, <?php echo $_SESSION["firstname"]; ?></h3>
+  <h3>Hello, <?php showAdminName(); ?></h3>
   <a href="admindash.html" ><i class="fa fa-dashboard"></i>&nbsp;&nbsp;Home</a>
   <a href="adminartnw.html"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;Article & News</a>
   <a href="adminprdlist.html"><i class="fa fa-list-ul"></i>&nbsp;&nbsp;Product List</a>

@@ -1,6 +1,4 @@
 <?php
-	session_start();
-
 	function mysql_entities_fix_string($connection, $string) {
 		return htmlentities(mysql_fix_string($connection, $string));
 	}
@@ -33,5 +31,9 @@
 		$_SESSION = array();
 		setcookie(session_name(), "", time() - 2592000, "/");
 		session_destroy();
+	}
+
+	function showAdminName() {
+		echo $_SESSION["firstname"];
 	}
 ?>

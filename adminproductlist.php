@@ -1,3 +1,11 @@
+<?php
+    require_once "assets/php/utilities.php";
+    session_start();
+?>
+<!----
+Jay
+---->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +25,7 @@
   <!--Fonts and icons-->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
   <!--CSS Files-->
@@ -91,47 +100,60 @@ div.content {
 <body>
 <div class="sidebar max-width auto" style="color:#000;background-color:#bdc3c7">
 	<center>
-  <h3>Hello, Jay!</h3>
-  <a href="admindash.html" ><i class="fa fa-dashboard"></i>&nbsp;&nbsp;Home</a>
+  <h3>Hello, <?php showAdminName(); ?></h3>
+  <a  href="admindash.html" ><i class="fa fa-dashboard"></i>&nbsp;&nbsp;Home</a>
   <a href="adminartnw.html"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;Article & News</a>
-  <a href="adminprdlist.html"><i class="fa fa-list-ul"></i>&nbsp;&nbsp;Product List</a>
+  <a class="active" href="adminprdlist.html"><i class="fa fa-list-ul"></i>&nbsp;&nbsp;Product List</a>
   <a href="adminorder.html"><i class='fas fa-pencil-alt'></i>&nbsp;&nbsp;Order Stock</a>
-  <a class="active" href="adminprofile.html"><i class='fas fa-user-circle'></i>&nbsp;&nbsp;User Profile</a>
+  <a href="adminprofile.html"><i class='fas fa-user-circle'></i>&nbsp;&nbsp;User Profile</a>
   <a href="AdminLogin.html"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Logout</a>
   </center>
 </div>
-<div class="content" style="background-color:#d7dbde">
-  <center>
-  <br>
-  <h1><b>
-  User Profile
-  </b></h1>
-  <br>
-  </center>
-<div style="display:flex;">
-  <div style="flex: 25%;padding: 10px;" style="background-color:#aaa;">
-    <h2>First Name:</h2><p> Jagaanathan</p>
-	<br>
-	<h2>Email:</h2><p> jayvelu2@gmail.com</p>
-	<br>
-	<h2>Postcode:</h2><p> 41200</p>
-	<br>
-	<h2>State:</h2><p> Selangor</p>
-	<br>
-  </div>
-  <div style="flex: 25%;padding: 10px;" style="background-color:#aaa;">
-    <h2>Last Name:</h2><p> Kathiravelu</p>
-	<br>
-	<h2>Address:</h2><p> No 11, Lrg Kampung 9,</p>
-	<br>
-	<h2>District:</h2><p> Klang</p>
-	<br>
-	<h2>Phone Number:</h2><p> 01137459308</p>
-	<br>
-  </div>
-  <div style="flex: 50%;padding: 10px;" style="background-color:#bbb;">
-    <img class="pic-1" src="assets/img/content/jay/j.jpeg" width="350" height="350">
-  </div>
+<div class="content" style="background-color:#d7dbde;">
+<center>
+<br>
+<h1>Product List</h1>
+
+<br><a class="btn btn-primary" href="adminaddproduct.php">
+  Add New Product
+</a>
+</center><br>
+  <table class="table">
+  <thead class="thead-dark">
+    
+                      <th>
+                        Product Name
+                      </th>
+                      <th>
+                        Variant
+                      </th>
+                      <th>
+                        Price
+                      </th>
+                      <th>
+                        Stock Left
+                      </th>
+                      <th>
+                        Platform
+                      </th>
+                      <th>
+                        Release Date
+                      </th>
+                      <th>
+                      
+                      </th>
+                      <th>
+                      
+                      </th>
+                      <th class="text-right">
+                        
+                      </th>
+  </thead >
+  <tbody>
+    <?php require 'assets/php/showproduct.php'; ?>
+  </tbody>
+</table>
 </div>
+
 </body>
 </html>
