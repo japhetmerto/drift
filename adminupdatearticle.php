@@ -1,3 +1,10 @@
+<?php
+	session_start();
+
+	$_SESSION["article_id"] = $_GET["article_id"];
+
+	require_once 'assets/php/showupdatearticle.php'
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -108,11 +115,11 @@ div.content {
 <br>
 
 <center>
-<form class="needs-validation" >
+<form class="needs-validation" method="post" action="assets/php/updatearticlenews.php">
 			<div class="row g-3">
 			  <div class="col-sm-6">
 				<label for="id" class="form-label">Article Title</label>
-				<input type="text" class="form-control" id="id" placeholder="" value="" required>
+				<input type="text" class="form-control" id="id" placeholder="" value="<?php echo $_SESSION["article_title"]; ?>" required name="article_title">
 				<div class="invalid-feedback">
 				  Valid Article ID is required.
 				</div>
@@ -120,7 +127,7 @@ div.content {
 
 			  <div class="col-sm-6">
 				<label for="articleTitle" class="form-label">Article Desc</label>
-				<input type="text" class="form-control" id="articleTitle" placeholder="" value="" required>
+				<input type="text" class="form-control" id="articleTitle" placeholder="" value="<?php echo $_SESSION["article_desc"]; ?>" required name="article_desc">
 				<div class="invalid-feedback">
 				  Valid Article Title is required.
 				</div>
@@ -128,7 +135,7 @@ div.content {
 			  <br>
 			  <div class="col-12">
 				<label for="authorName" class="form-label">Author Name</label>
-				<input type="text" class="form-control" id="authorName" placeholder="" value="" required>
+				<input type="text" class="form-control" id="authorName" placeholder="" required name="author_name" value="<?php echo $_SESSION["author_name"]; ?>">
 				<div class="invalid-feedback">
 				  Valid Article Title is required.
 				</div>
@@ -139,7 +146,7 @@ div.content {
 				<label for="articleContent" class="form-label">Article Content</label>
 				<div class="input-group">
 				  
-				  <textarea type="text" class="form-control" id="articleContent" placeholder="" rows="10" cols="50" required></textarea>
+				  <textarea type="text" class="form-control" id="articleContent" placeholder="" rows="10" cols="50" required name="article_content"><?php echo $_SESSION["article_content"]; ?></textarea>
 				<div class="invalid-feedback">
 					Your Content is required.
 				  </div>
@@ -148,7 +155,7 @@ div.content {
 
 			  <div class="col-sm-6">
 				<label for="imageLink" class="form-label">Image Link</label>
-				<input type="text" class="form-control" id="imageLink" required>
+				<input type="text" class="form-control" id="imageLink" required name="image_link" value="<?php echo $_SESSION["image_link"]; ?>">
 				<div class="invalid-feedback">
 				  Please enter a valid Image Link.
 				</div>
@@ -156,7 +163,7 @@ div.content {
 			  
 			  <div class="col-sm-6">
 				<label for="date" class="form-label">Date</label>
-				<input type="date" class="form-control" id="date" required>
+				<input type="date" class="form-control" id="date" required name="date" value="<?php echo $_SESSION["date"]; ?>">
 				<div class="invalid-feedback">
 				  Please enter a valid Image Link.
 				</div>
@@ -165,13 +172,10 @@ div.content {
 			  
 
 			</div>
-			<!-- Buttons -->
-			<a href=".html">
-			  <button class="btn btn-warning btn-lg mx-auto mt-3" type="submit" href=>Update Article</button>
-			</a>
+			  <button class="btn btn-warning btn-lg mx-auto mt-3" type="submit">Update Article</button>
 			
 		  </form>
-		  <a href="adminartnw.html">
+		  <a href="adminarticlenews.php">
 			  <button class="btn btn-warning btn-lg mx-auto mt-3" style="background-color:red;color:white;">Cancel</button>
 			</a>
 </center>

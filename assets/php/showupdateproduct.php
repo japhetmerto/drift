@@ -1,6 +1,5 @@
 <?php
 	require_once "databaseconfig.php";
-	require_once "utilities.php";
 
 	// Connect to the database
 	$connection = new mysqli($hn, $un, $pw, $db);
@@ -12,10 +11,6 @@
  	if ($_SESSION["type"] == "Game") {
  		$query = "SELECT * FROM product_details NATURAL JOIN store_game WHERE product_id = '" . $_SESSION["product_id"] . "'";
  		$result = $connection -> query($query);
-
-		if (!$result) {
-			die("Database Error");
-		}
 
 		$row = $result -> fetch_array(MYSQLI_ASSOC);
 
@@ -56,10 +51,6 @@
  		$query = "SELECT * FROM product_details NATURAL JOIN store_console WHERE product_id = '" . $_SESSION["product_id"] . "'";
  		$result = $connection -> query($query);
 
-		if (!$result) {
-			die("Database Error");
-		}
-
 		$row = $result -> fetch_array(MYSQLI_ASSOC);
 
 		$_SESSION["product_name"] = $row["product_name"];
@@ -92,10 +83,6 @@
  	} else {
  		$query = "SELECT * FROM product_details NATURAL JOIN store_accessories WHERE product_id = '" . $_SESSION["product_id"] . "'";
  		$result = $connection -> query($query);
-
-		if (!$result) {
-			die("Database Error");
-		}
 
 		$row = $result -> fetch_array(MYSQLI_ASSOC);
 

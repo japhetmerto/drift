@@ -1,3 +1,7 @@
+<?php
+    require_once "assets/php/utilities.php";
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -104,77 +108,54 @@ div.content {
 <section style="background-color:;">
 <center>
 <br>
-<h2>Add New Article / News</h2>
+<h2>Articles & News</h2>
 <br>
 
-<center>
-<form class="needs-validation" >
-			<div class="row g-3">
-			  <div class="col-sm-6">
-				<label for="id" class="form-label">Article Title</label>
-				<input type="text" class="form-control" id="id" placeholder="" value="" required>
-				<div class="invalid-feedback">
-				  Valid Article ID is required.
-				</div>
-			  </div>
 
-			  <div class="col-sm-6">
-				<label for="articleTitle" class="form-label">Article Desc</label>
-				<input type="text" class="form-control" id="articleTitle" placeholder="" value="" required>
-				<div class="invalid-feedback">
-				  Valid Article Title is required.
-				</div>
-			  </div>
-			  <br>
-			  <div class="col-12">
-				<label for="authorName" class="form-label">Author Name</label>
-				<input type="text" class="form-control" id="authorName" placeholder="" value="" required>
-				<div class="invalid-feedback">
-				  Valid Article Title is required.
-				</div>
-			  </div>
-			  <br>
-<br>
-			  <div class="col-12">
-				<label for="articleContent" class="form-label">Article Content</label>
-				<div class="input-group">
-				  
-				  <textarea type="text" class="form-control" id="articleContent" placeholder="" rows="10" cols="50" required></textarea>
-				<div class="invalid-feedback">
-					Your Content is required.
-				  </div>
-				</div>
-			  </div>
+    
+  
 
-			  <div class="col-sm-6">
-				<label for="imageLink" class="form-label">Image Link</label>
-				<input type="text" class="form-control" id="imageLink" required>
-				<div class="invalid-feedback">
-				  Please enter a valid Image Link.
-				</div>
-			  </div>
-			  
-			  <div class="col-sm-6">
-				<label for="date" class="form-label">Date</label>
-				<input type="date" class="form-control" id="date" required>
-				<div class="invalid-feedback">
-				  Please enter a valid Image Link.
-				</div>
-			  </div>
-			  
-			  
+     
+<a class="btn btn-primary" href="adminaddarticle.php">
+  Add New Article / News
+</a>
 
-			</div>
-			<!-- Buttons -->
-			<a href=".html">
-			  <button class="btn btn-warning btn-lg mx-auto mt-3" type="submit" href=>Add Article</button>
-			</a>
-			
-		  </form>
-		  <a href="adminartnw.html">
-			  <button class="btn btn-warning btn-lg mx-auto mt-3" style="background-color:red;color:white;">Cancel</button>
-			</a>
+
+
+		  
+  </section>
+  <br>
+  <center>
+<h2>List Of Articles & News</h2>
 </center>
+  <table class="table">
+  <thead class="thead-dark">
+    
+                      <th>
+                        Article Name
+                      </th>
+					  <th>
+					  Article Desc
+					  </th>
+                      <th>
+                        Date
+                      </th>
+					  
+					  <th>
+					    
+					  </th>
+					  <th>
+					  
+					  </th>
+                      <th class="text-right">
+                        
+                      </th>
+  </thead >
+  <tbody>
+    <?php require 'assets/php/showarticlenews.php'; ?>
+  </tbody>
+</table>
+</div>
 
 </body>
 </html>
