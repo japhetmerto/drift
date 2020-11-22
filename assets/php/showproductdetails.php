@@ -36,7 +36,7 @@
 		$_SESSION["product_description"] = $row["product_description"];
 		$_SESSION["ratings"] = $row["ratings"];
 		$_SESSION["stock"] = $row["stock"];
-		$_SESSION["price"] = ($row["price"] - ($row["discount_offer"] / 100) * $row["price"]);
+		$_SESSION["price"] = $row["price"];
 		$_SESSION["discount_offer"] = $row["discount_offer"];
 		$_SESSION["discount_price"] = $row["discount_price"];
 		$_SESSION["platform"] = $row["platform"];

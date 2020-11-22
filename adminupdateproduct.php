@@ -154,9 +154,9 @@ div.content {
 				</div>
 			  </div>
 			  
-			  <div class="col-sm-4">
+			 <div class="col-sm-4">
 				<label for="productPrice" class="form-label">Product Price</label>
-				<input type="number" class="form-control" id="productPrice" required value="<?php echo $_SESSION["price"]; ?>" name="price">
+				<input type="number" class="form-control" id="price" required name="price">
 				<div class="invalid-feedback">
 				  Please enter a valid Price.
 				</div>
@@ -164,17 +164,17 @@ div.content {
 			  
 			  <div class="col-sm-4">
 				<label for="productTempPrice" class="form-label">Discount Offer</label>
-				<input type="number" class="form-control" id="productTempPrice" required value="<?php echo $_SESSION["discount_offer"]; ?>" name="discount_offer">
+				<input type="number" class="form-control" id="discount" required name="discount_offer">
 				<div class="invalid-feedback">
-				  Please enter a valid Number.
+				  Please enter a valid Temp Price.
 				</div>
 			  </div>
 			  
 			  <div class="col-sm-4">
 				<label for="productTempPrice" class="form-label">Discount Price</label>
-				<input type="number" class="form-control" id="productTempPrice" required value="<?php echo $_SESSION["discount_price"]; ?>" name="discount_price">
+				<input type="number" onclick="getPrice()" class="form-control" id="total" required name="discount_price">
 				<div class="invalid-feedback">
-				  Please enter a valid Price.
+				  Please enter a valid Temp Price.
 				</div>
 			  </div>
 			  
@@ -250,5 +250,14 @@ div.content {
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper)  -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+	
+	<script>
+        getPrice = function() {
+            var numVal1 = Number(document.getElementById("price").value);
+            var numVal2 = Number(document.getElementById("discount").value) / 100;
+            var totalValue = numVal1 - (numVal1 * numVal2)
+            document.getElementById("total").value = totalValue.toFixed(2);
+        }
+    </script>
 </body>
 </html>
