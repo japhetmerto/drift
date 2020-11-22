@@ -16,16 +16,16 @@
 
  	// Update by product
  	if ($_SESSION["type"] == "Game") {
- 		$stmt = $connection -> prepare("UPDATE store_game SET stock = ?  WHERE product_id = ?");
-		$stmt -> bind_param("ss", $stock, $_SESSION["product_id"]);
+ 		$stmt = $connection -> prepare("UPDATE store_game SET stock = ?  WHERE product_id = ? AND variants = ?");
+		$stmt -> bind_param("sss", $stock, $_SESSION["product_id"], $_SESSION["variants"]);
 		$stmt -> execute();
  	}  elseif ($_SESSION["type"] == "Console") {
- 		$stmt = $connection -> prepare("UPDATE store_console SET stock = ?  WHERE product_id = ?");
-		$stmt -> bind_param("ss", $stock, $_SESSION["product_id"]);
+ 		$stmt = $connection -> prepare("UPDATE store_console SET stock = ?  WHERE product_id = ? AND variants = ?");
+		$stmt -> bind_param("sss", $stock, $_SESSION["product_id"], $_SESSION["variants"]);
 		$stmt -> execute();
  	} else {
- 		$stmt = $connection -> prepare("UPDATE store_accessories SET stock = ?  WHERE product_id = ?");
-		$stmt -> bind_param("ss", $stock, $_SESSION["product_id"]);
+ 		$stmt = $connection -> prepare("UPDATE store_accessories SET stock = ?  WHERE product_id = ? AND variants = ?");
+		$stmt -> bind_param("sss", $stock, $_SESSION["product_id"], $_SESSION["variants"]);
 		$stmt -> execute();
  	}
  	

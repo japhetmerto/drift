@@ -3,6 +3,7 @@
 
 	$_SESSION["product_id"] = $_GET["product_id"];
 	$_SESSION["type"] = $_GET["type"];
+	$_SESSION["variants"] = $_GET["variants"];
 
 	require_once 'assets/php/showupdateproduct.php'
 ?>
@@ -102,11 +103,11 @@ div.content {
 <body>
 <div class="sidebar max-width auto" style="color:#000;background-color:#bdc3c7">
 	<center>
-  <h3>Hello, Jay!</h3>
+  <h3>Hello, Anon</h3>
   <a href="admindash.html" ><i class="fa fa-dashboard"></i>&nbsp;&nbsp;Home</a>
   <a href="adminartnw.html"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;Article & News</a>
-  <a class="active" href="adminprdlist.html"><i class="fa fa-list-ul"></i>&nbsp;&nbsp;Product List</a>
-  <a href="adminorder.html"><i class='fas fa-pencil-alt'></i>&nbsp;&nbsp;Order Stock</a>
+  <a class="active" href="adminproductlist.php"><i class="fa fa-list-ul"></i>&nbsp;&nbsp;Product List</a>
+  <a href="adminorderstock.php"><i class='fas fa-pencil-alt'></i>&nbsp;&nbsp;Order Stock</a>
   <a href="adminprofile.html"><i class='fas fa-user-circle'></i>&nbsp;&nbsp;User Profile</a>
   <a href="AdminLogin.html"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Logout</a>
   </center>

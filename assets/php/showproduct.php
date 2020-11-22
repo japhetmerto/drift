@@ -28,8 +28,9 @@
 		echo "<td>" . $row["stock"] . "</td>";
 		echo "<td>" . $row["platform"] . "</td>";
 		echo "<td>" . $row["date_release"] . "</td>";
-		echo "<td><a href='assets/php/deleteproduct.php?product_id=" . $row["product_id"] . "&type=Game'><i class='far fa-trash-alt' style='color:#FF0000;''></i></a></td>";
-		echo "<td class='text-right'><a href='adminupdateproduct.php?product_id=" . $row["product_id"] . "&type=Game'><i class='fa fa-edit' style='cursor:pointer;''></i></a></td></tr>";
+		echo "<td><a href='productdetails.php?product_id=" . $row["product_id"] . "&type=Game&variants=" . $row["variants"] . "'><i class='fas fa-link' style='color:black;''></i></a></td>";
+		echo "<td><a href='assets/php/deleteproduct.php?product_id=" . $row["product_id"] . "&type=Game&variants=" . $row["variants"] . "'><i class='far fa-trash-alt' style='color:#FF0000;''></i></a></td>";
+		echo "<td><a href='adminupdateproduct.php?product_id=" . $row["product_id"] . "&type=Game&variants=" . $row["variants"] . "'><i class='fa fa-edit' style='cursor:pointer;''></i></a></td></tr>";
 	}
 
  	// Show Consoles
@@ -51,8 +52,9 @@
 		echo "<td>" . $row["stock"] . "</td>";
 		echo "<td>" . $row["platform"] . "</td>";
 		echo "<td>" . $row["date_release"] . "</td>";
-		echo "<td><a href='assets/php/deleteproduct.php?product_id=" . $row["product_id"] . "&type=Console'><i class='far fa-trash-alt' style='color:#FF0000;''></i></a></td>";
-		echo "<td class='text-right'><a href='adminupdateproduct.php?product_id=" . $row["product_id"] . "&type=Console'><i class='fa fa-edit' style='cursor:pointer;''></i></a></td></tr>";
+		echo "<td><a href='productdetails.php?product_id=" . $row["product_id"] . "&type=Console&variants=" . $row["variants"] . "'><i class='fas fa-link' style='color:black;''></i></a></td>";
+		echo "<td><a href='assets/php/deleteproduct.php?product_id=" . $row["product_id"] . "&type=Console&variants=" . $row["variants"] . "'><i class='far fa-trash-alt' style='color:#FF0000;''></i></a></td>";
+		echo "<td><a href='adminupdateproduct.php?product_id=" . $row["product_id"] . "&type=Console&variants=" . $row["variants"] . "'><i class='fa fa-edit' style='cursor:pointer;''></i></a></td></tr>";
 	}
 
  	// Show Accessories
@@ -74,8 +76,9 @@
 		echo "<td>" . $row["stock"] . "</td>";
 		echo "<td>" . $row["platform"] . "</td>";
 		echo "<td>" . $row["date_release"] . "</td>";
-		echo "<td><a href='assets/php/deleteproduct.php?product_id=" . $row["product_id"] . "&type=Accessories'><i class='far fa-trash-alt' style='color:#FF0000;''></i></a></td>";
-		echo "<td class='text-right'><a href='adminupdateproduct.php?product_id=" . $row["product_id"] . "&type=Accessories'><i class='fa fa-edit' style='cursor:pointer;''></i></a></td></tr>";
+		echo "<td><a href='productdetails.php?product_id=" . $row["product_id"] . "&type=Accessories&variants=" . $row["variants"] . "'><i class='fas fa-link' style='color:black;''></i></a></td>";
+		echo "<td><a href='assets/php/deleteproduct.php?product_id=" . $row["product_id"] . "&type=Accessories&variants=" . $row["variants"] . "'><i class='far fa-trash-alt' style='color:#FF0000;''></i></a></td>";
+		echo "<td><a href='adminupdateproduct.php?product_id=" . $row["product_id"] . "&type=Accessories&variants=" . $row["variants"] . "'><i class='fa fa-edit' style='cursor:pointer;''></i></a></td></tr>";
 	}
 
 	// Close all the connections

@@ -20,7 +20,7 @@
 
 	// Get the values from POST
  	$product_name = mysql_entities_fix_string($connection, $_POST["product_name"]);
- 	$product_description = mysql_entities_fix_string($connection, $_POST["product_description"]);
+ 	$product_description = $_POST["product_description"];
  	$stock = mysql_entities_fix_string($connection, $_POST["stock"]);
  	$price = mysql_entities_fix_string($connection, $_POST["price"]);
  	$discount_offer = mysql_entities_fix_string($connection, $_POST["discount_offer"]);

@@ -9,7 +9,7 @@
  	}
 
  	if ($_SESSION["type"] == "Game") {
- 		$query = "SELECT * FROM product_details NATURAL JOIN store_game WHERE product_id = '" . $_SESSION["product_id"] . "'";
+ 		$query = "SELECT * FROM product_details NATURAL JOIN store_game WHERE product_id = '" . $_SESSION["product_id"] . "' AND variants = '" . $_SESSION["variants"] . "'";
  		$result = $connection -> query($query);
 
 		$row = $result -> fetch_array(MYSQLI_ASSOC);
@@ -48,7 +48,7 @@
 		}
 		 
  	} elseif ($_SESSION["type"] == "Console") {
- 		$query = "SELECT * FROM product_details NATURAL JOIN store_console WHERE product_id = '" . $_SESSION["product_id"] . "'";
+ 		$query = "SELECT * FROM product_details NATURAL JOIN store_console WHERE product_id = '" . $_SESSION["product_id"] . "' AND variants = '" . $_SESSION["variants"] . "'";
  		$result = $connection -> query($query);
 
 		$row = $result -> fetch_array(MYSQLI_ASSOC);
@@ -81,7 +81,7 @@
 		$_SESSION["type"] = "<option value='Game'>Games</option><option value='Console' selected='selected'>Console</option><option value='Accessories'>Console Accessory</option>";
 		$_SESSION["isMembershipExclusive"] = " ";
  	} else {
- 		$query = "SELECT * FROM product_details NATURAL JOIN store_accessories WHERE product_id = '" . $_SESSION["product_id"] . "'";
+ 		$query = "SELECT * FROM product_details NATURAL JOIN store_accessories WHERE product_id = '" . $_SESSION["product_id"] . "' AND variants = '" . $_SESSION["variants"] . "'";
  		$result = $connection -> query($query);
 
 		$row = $result -> fetch_array(MYSQLI_ASSOC);

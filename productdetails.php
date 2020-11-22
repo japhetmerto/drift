@@ -1,3 +1,12 @@
+<?php
+	session_start();
+
+	$_SESSION["product_id"] = $_GET["product_id"];
+	$_SESSION["type"] = $_GET["type"];
+	$_SESSION["variants"] = $_GET["variants"];
+
+	require_once 'assets/php/showproductdetails.php'
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -213,8 +222,8 @@
 			<nav aria-label="breadcrumb">
 			  <ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="main.html" class="text-secondary">Home</a></li>
-				<li class="breadcrumb-item"><a href="store.html" class="text-secondary">Game</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Cyberpunk 2077</li>
+				<li class="breadcrumb-item"><a href="store.html" class="text-secondary"><?php echo $_SESSION["type"]; ?></a></li>
+				<li class="breadcrumb-item active" aria-current="page"><?php echo $_SESSION["product_name"]; ?></li>
 			  </ol>
 			</nav>
 		</div>
@@ -223,29 +232,29 @@
 	  <div class="row">
 		  <div class="col-md-8">
 				<div class="container" style="position:relative;">
-				<h2 class ="text-white pb-2"style="text-align:left">Cyberpunk 2077</h2>
+				<h2 class ="text-white pb-2"style="text-align:left"><?php echo $_SESSION["product_name"]; ?></h2>
 				  <div class="mySlides">
-					<img src="assets/img/content/product-detail/cp.jpg" style="width:100%">
+					<img src="assets/img/content/product-detail/<?php echo $_SESSION["image_link"][0]; ?>" style="width:100%">
 				  </div>
 
 				  <div class="mySlides">
-					<img src="assets/img/content/product-detail/cp_1.jpg" style="width:100%">
+					<img src="assets/img/content/product-detail/<?php echo $_SESSION["image_link"][1]; ?>" style="width:100%">
 				  </div>
 
 				  <div class="mySlides">
-					<img src="assets/img/content/product-detail/cp_2.jpg" style="width:100%">
+					<img src="assets/img/content/product-detail/<?php echo $_SESSION["image_link"][2]; ?>" style="width:100%">
 				  </div>
 					
 				  <div class="mySlides">
-					<img src="assets/img/content/product-detail/cp_3.jpg" style="width:100%">
+					<img src="assets/img/content/product-detail/<?php echo $_SESSION["image_link"][3]; ?>" style="width:100%">
 				  </div>
 
 				  <div class="mySlides">
-					<img src="assets/img/content/product-detail/cp_4.jpg" style="width:100%">
+					<img src="assets/img/content/product-detail/<?php echo $_SESSION["image_link"][4]; ?>" style="width:100%">
 				  </div>
 					
 				  <div class="mySlides">
-					<img src="assets/img/content/product-detail/cp_5.jpg" style="width:100%">
+					<img src="assets/img/content/product-detail/<?php echo $_SESSION["image_link"][5]; ?>" style="width:100%">
 				  </div>
 					
 				  <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -253,22 +262,22 @@
 
 				  <div class="row">
 					<div class="column">
-					  <img class="demo cursor" src="assets/img/content/product-detail/cp.jpg" style="width:100%" onclick="currentSlide(1)">
+					  <img class="demo cursor" src="assets/img/content/product-detail/<?php echo $_SESSION["image_link"][0]; ?>" style="width:100%" onclick="currentSlide(1)">
 					</div>
 					<div class="column">
-					  <img class="demo cursor" src="assets/img/content/product-detail/cp_1.jpg" style="width:100%" onclick="currentSlide(2)">
+					  <img class="demo cursor" src="assets/img/content/product-detail/<?php echo $_SESSION["image_link"][1]; ?>" style="width:100%" onclick="currentSlide(2)">
 					</div>
 					<div class="column">
-					  <img class="demo cursor" src="assets/img/content/product-detail/cp_2.jpg" style="width:100%" onclick="currentSlide(3)">
+					  <img class="demo cursor" src="assets/img/content/product-detail/<?php echo $_SESSION["image_link"][2]; ?>" style="width:100%" onclick="currentSlide(3)">
 					</div>
 					<div class="column">
-					  <img class="demo cursor" src="assets/img/content/product-detail/cp_3.jpg" style="width:100%" onclick="currentSlide(4)">
+					  <img class="demo cursor" src="assets/img/content/product-detail/<?php echo $_SESSION["image_link"][3]; ?>" style="width:100%" onclick="currentSlide(4)">
 					</div>
 					<div class="column">
-					  <img class="demo cursor" src="assets/img/content/product-detail/cp_4.jpg" style="width:100%" onclick="currentSlide(5)">
+					  <img class="demo cursor" src="assets/img/content/product-detail/<?php echo $_SESSION["image_link"][4]; ?>" style="width:100%" onclick="currentSlide(5)">
 					</div>    
 					<div class="column">
-					  <img class="demo cursor" src="assets/img/content/product-detail/cp_5.jpg" style="width:100%" onclick="currentSlide(6)">
+					  <img class="demo cursor" src="assets/img/content/product-detail/<?php echo $_SESSION["image_link"][5]; ?>" style="width:100%" onclick="currentSlide(6)">
 					</div>
 				  </div>
 				</div>
@@ -278,23 +287,7 @@
 						<h2 class="blog-post-title">Product <b class="text-warning">Description</b></h2>
 
 						<hr class="bg-white">
-						<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-						<blockquote>
-						  <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-						</blockquote>
-						<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-						<ul>
-						  <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-						  <li>Donec id elit non mi porta gravida at eget metus.</li>
-						  <li>Nulla vitae elit libero, a pharetra augue.</li>
-						</ul>
-						<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-						<ol>
-						  <li>Vestibulum id ligula porta felis euismod semper.</li>
-						  <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-						  <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-						</ol>
-						<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+						<?php echo $_SESSION["product_description"]; ?>
 					</div>
 				<!----- End Product Description----->
 				  
@@ -304,30 +297,30 @@
 			<aside class="col-md-4">
 			
 			  <div class="detail shadow p-4 mb-3 text-white border rounded mt-5">
-				<h4>Cyberpunk <b class="text-warning">2077</b></h4>
-					  <p class="mb-2 text-muted text-uppercase small">Games</p>
+				<h4><?php echo $_SESSION["newproduct_name"]; ?></h4>
+					  <p class="mb-2 text-muted text-uppercase small"><?php echo $_SESSION["type"]; ?></p>
 						<div class="rating">
 							<li class="fa fa-star text-warning"></li>
 							<li class="fa fa-star text-warning"></li>
 							<li class="fa fa-star text-warning"></li>
 							<li class="fa fa-star text-warning"></li>
-							<li class="fa fa-star text-warning"><span class="text-secondary">&nbsp;&nbsp;&nbsp;&nbsp;254 Ratings</span></li>
+							<li class="fa fa-star text-warning"><span class="text-secondary">&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $_SESSION["ratings"]; ?> Ratings</span></li>
 						</div>
-					  <h4 class="mt-3"><span class="mr-1"><strong>RM 249</strong></span></h4>
+					  <h4 class="mt-3"><span class="mr-1"><strong>RM <?php echo $_SESSION["price"]; ?></strong></span></h4>
 					  <div class="table-responsive">
 						<table class="table table-sm table-borderless mb-0 text-white">
 						  <tbody>
 							<tr>
 							  <th class="pl-0 w-30" scope="row">Platform</th>
-							  <td>Playstation, Xbox</td>
+							  <td><?php echo $_SESSION["platform"]; ?></td>
 							</tr>
 							<tr>
 							  <th class="pl-0 w-30" scope="row">Developer</th>
-							  <td>CDProjektRed</td>
+							  <td><?php echo $_SESSION["developer"]; ?></td>
 							</tr>
 							<tr>
 							  <th class="pl-0 w-30" scope="row">Stock Left</th>
-							  <td>50</td>
+							  <td><?php echo $_SESSION["stock"]; ?></td>
 							</tr>
 						  </tbody>
 						</table>
@@ -341,11 +334,8 @@
 						  <div class="input-group-prepend">
 							<label class="input-group-text" for="inputGroupSelect01">Variants</label>
 						  </div>
-						  <select class="custom-select" id="inputGroupSelect01">
-							<option selected>Standard Edition</option>
-							<option value="1">Deluxe Edition</option>
-							<option value="2">Gold Edition</option>
-							<option value="3">Ultimate Edition</option>
+						  <select class="custom-select" id="inputGroupSelect01" name="variants" onchange="location = this.value;">
+							<?php echo $_SESSION["selectvariants"]; ?>
 						  </select>
 					  </div>
 					  <div class="text-center pt-3">

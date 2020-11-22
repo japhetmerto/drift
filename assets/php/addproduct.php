@@ -18,7 +18,7 @@
 
 	// Get the values from POST
  	$product_name = mysql_entities_fix_string($connection, $_POST["product_name"]);
- 	$product_description = mysql_entities_fix_string($connection, $_POST["product_description"]);
+ 	$product_description = $_POST["product_description"];
  	$stock = mysql_entities_fix_string($connection, $_POST["stock"]);
  	$price = mysql_entities_fix_string($connection, $_POST["price"]);
  	$discount_offer = mysql_entities_fix_string($connection, $_POST["discount_offer"]);
@@ -34,15 +34,31 @@
  	// Add the `product image` at the end of `image link`
  	$image_link .= ", " . $product_image;
 
- 	// Generate random ID
-	$bytes= random_bytes(5);
+ 	// If there is an existing game
+	$stmt = $connection -> prepare("SELECT * FROM product_details WHERE product_name = ?");
+	$stmt -> bind_param("s", $product_name);
+	$stmt -> execute();
+	$result = $stmt -> get_result();
+
 	$randomID = "";
-	$randomID .="PROD-";
-	$randomID .= bin2hex($bytes);
+
+	// If game not found
+	if (!$result -> num_rows) {
+		// Generate random ID
+		$bytes= random_bytes(5);
+		$randomID .="PROD-";
+		$randomID .= bin2hex($bytes);
+	} else {
+		$row = $result -> fetch_array(MYSQLI_ASSOC);
+		$randomID .= $row["product_id"];
+	}
+
+	// Default ratings
+	$ratings = "0";
 
 	// Insert values - product details
-	$stmt = $connection -> prepare("INSERT INTO product_details (product_id, product_name, product_description, type, platform, developer, date_release, image_link) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-	$stmt -> bind_param("ssssssss", $randomID, $product_name, $product_description, $type, $platform, $developer, $date_release, $image_link);
+	$stmt = $connection -> prepare("INSERT INTO product_details (product_id, product_name, product_description, type, platform, developer, date_release, image_link, ratings) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	$stmt -> bind_param("sssssssss", $randomID, $product_name, $product_description, $type, $platform, $developer, $date_release, $image_link, $ratings);
 	$stmt -> execute();
 
 	// Insert values by the product type
