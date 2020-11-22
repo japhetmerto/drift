@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2020 at 10:54 AM
+-- Generation Time: Nov 22, 2020 at 07:51 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.32
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `drift_v3_3`
+-- Database: `drift_v3_4`
 --
 
 -- --------------------------------------------------------
@@ -82,6 +82,9 @@ CREATE TABLE `checkout` (
   `billing_id` varchar(200) NOT NULL,
   `cart_id` varchar(200) DEFAULT NULL,
   `user_id` varchar(200) DEFAULT NULL,
+  `checkout_date` varchar(200) DEFAULT NULL,
+  `no_of_items` int(20) DEFAULT NULL,
+  `total_amount` int(20) DEFAULT NULL,
   `address` varchar(200) DEFAULT NULL,
   `address2` varchar(200) DEFAULT NULL,
   `country` varchar(200) DEFAULT NULL,

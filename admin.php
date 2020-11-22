@@ -105,11 +105,11 @@ div.content {
 
 <div class="sidebar max-width auto" style="color:#000;background-color:#bdc3c7">
 	<center>
-  <h3>Hello, <?php showAdminName(); ?></h3>
-  <a class="active" href="admindash.html" ><i class="fa fa-dashboard"></i>&nbsp;&nbsp;Home</a>
-  <a href="adminartnw.html"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;Article & News</a>
-  <a href="adminprdlist.html"><i class="fa fa-list-ul"></i>&nbsp;&nbsp;Product List</a>
-  <a href="adminorder.html"><i class='fas fa-pencil-alt'></i>&nbsp;&nbsp;Order Stock</a>
+    <h3>Hello, Anon</h3>
+  <a class="active" href="admin.php" ><i class="fa fa-dashboard"></i>&nbsp;&nbsp;Home</a>
+  <a href="adminarticlenews.php"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;Article & News</a>
+  <a href="adminproductlist.php"><i class="fa fa-list-ul"></i>&nbsp;&nbsp;Product List</a>
+  <a href="adminorderstock.php"><i class='fas fa-pencil-alt'></i>&nbsp;&nbsp;Order Stock</a>
   <a href="adminprofile.php"><i class='fas fa-user-circle'></i>&nbsp;&nbsp;User Profile</a>
   <a href="assets/php/logout.php"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Logout</a>
   </center>

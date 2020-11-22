@@ -19,8 +19,9 @@
 		echo "<tr><td>" . $row["article_title"] . "</td>";
 		echo "<td>" . $row["article_desc"] . "</td>";
 		echo "<td>" . $row["date"] . "</td>";
+		echo "<td><a href='articledetails.php?article_id=" . $row["article_id"] . "'><i class='fas fa-link' style='color:black;''></i></a></td>";
 		echo "<td><a href='assets/php/deletearticlenews.php?article_id=" . $row["article_id"] . "'><i class='far fa-trash-alt' style='color:#FF0000;''></i></a></td>";
-		echo "<td class='text-right'><a href='adminupdatearticle.php?article_id=" . $row["article_id"] . "'><i class='fa fa-edit' style='cursor:pointer;'></i></a></td></tr>";
+		echo "<td><a href='adminupdatearticle.php?article_id=" . $row["article_id"] . "'><i class='fa fa-edit' style='cursor:pointer;'></i></a></td></tr>";
 	}
 
 	// Close all the connections

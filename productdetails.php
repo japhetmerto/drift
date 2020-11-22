@@ -5,7 +5,7 @@
 	$_SESSION["type"] = $_GET["type"];
 	$_SESSION["variants"] = $_GET["variants"];
 
-	require_once 'assets/php/showproductdetails.php'
+	require_once 'assets/php/showproductdetails.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

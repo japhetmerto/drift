@@ -1,3 +1,20 @@
+<?php
+	require_once "assets/php/databaseconfig.php";
+	require_once "assets/php/utilities.php";
+
+	session_start();
+
+	// Connect to the database
+	$connection = new mysqli($hn, $un, $pw, $db);
+
+ 	if ($connection -> connect_error) {
+ 		die("Database Connection Error");
+ 	}
+
+	$_SESSION["article_id"] = mysql_entities_fix_string($connection, $_GET["article_id"]);
+
+	require_once 'assets/php/showarticledetails.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -97,51 +114,24 @@
 		
 		
 			<div class="card text-white bg-transparent rounded">
-			  <img src="assets/img/bg/bg-4.jpg" class="card-img" alt="...">
+			  <img src="assets/img/bg/<?php echo $_SESSION["image_link"]; ?>" class="card-img" alt="...">
 			  <div class="card-img-overlay col-md-6 p-4">
-				<h1 class="display-4 font-italic text-warning"><b>DOTA 2</b></h1>
-				<p class="lead my-3">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-				<p class="lead mb-0">27 November 2020</p>
+				<h1 class="display-4 font-italic text-warning"><b><?php echo $_SESSION["article_title"]; ?></b></h1>
+				<p class="lead my-3"><?php echo $_SESSION["article_desc"]; ?></p>
+				<p class="lead mb-0"><?php echo $_SESSION["date"]; ?></p>
 			  </div>
 			</div>
 			
 			<div class="row pt-5">
 				<div class="col-md-8">
 				  <h3 class="pb-4 mb-4 font-italic border-bottom text-white">
-					From the <b class="text-warning">Firehose</b>
+					From the <b class="text-warning"><?php echo $_SESSION["author_name"]; ?></b>
 				  </h3>
 
 				  <div class="blog-post text-white">
-					<h2 class="blog-post-title">Sample blog post</h2>
-					<p class="blog-post-meta">November 27, 2020 by <a href="#">Wei Shen</a></p>
-
-					<p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
-					<hr>
-					<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-					<blockquote>
-					  <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-					</blockquote>
-					<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-					<h2>Heading</h2>
-					<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-					<h3>Sub-heading</h3>
-					<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-					<pre><code class="text-warning">Example code block</code></pre>
-					<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-					<h3>Sub-heading</h3>
-					<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-					<ul>
-					  <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-					  <li>Donec id elit non mi porta gravida at eget metus.</li>
-					  <li>Nulla vitae elit libero, a pharetra augue.</li>
-					</ul>
-					<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-					<ol>
-					  <li>Vestibulum id ligula porta felis euismod semper.</li>
-					  <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-					  <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-					</ol>
-					<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+					<h2 class="blog-post-title"><?php echo $_SESSION["article_title"]; ?></h2>
+					<p class="blog-post-meta"><?php echo $_SESSION["newdate"]; ?> by <a href="#"><?php echo $_SESSION["author_name"]; ?></a></p>
+					<?php echo $_SESSION["article_content"]; ?>
 				  </div><!-- /.blog-post -->
 
 				</div>
