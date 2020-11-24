@@ -59,6 +59,7 @@
  	// User Ratings graphs
  	// 5 Star
  	$fivestar_amount = $row["5star_amount"];
+ 	$fivestar_graph = "0";
  	if ($row["total_reviews"] == 0) {
  		$fivestar_graph == 0;
  	} else {
@@ -72,6 +73,7 @@
 
  	// 4 Star
  	$fourstar_amount = $row["4star_amount"];
+ 	$fourstar_graph = "0";
  	if ($row["total_reviews"] == 0) {
  		$fourstar_graph == 0;
  	} else {
@@ -85,6 +87,7 @@
 
  	// 3 Star
  	$threestar_amount = $row["3star_amount"];
+ 	$threestar_graph = "0";
  	if ($row["total_reviews"] == 0) {
  		$threestar_graph == 0;
  	} else {
@@ -98,6 +101,7 @@
 
  	// 2 Star
  	$twostar_amount = $row["2star_amount"];
+ 	$twostar_graph = "0";
  	if ($row["total_reviews"] == 0) {
  		$twostar_graph == 0;
  	} else {
@@ -111,6 +115,7 @@
 
  	// 1 Star
  	$onestar_amount = $row["1star_amount"];
+ 	$onestar_graph = "0";
  	if ($row["total_reviews"] == 0) {
  		$onestar_graph == 0;
  	} else {

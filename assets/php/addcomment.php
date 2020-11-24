@@ -26,9 +26,15 @@
 
 			// Debug Echo
 			echo "article_id: $article_id<br>";
+			echo "username: {$_SESSION["username"]}<br>";
 			echo "comment: $comment<br>";
 			echo "timenow: $timenow<br>";
 			echo "datenow: $datenow";
+
+			// Insert to articles_comment
+			$stmt = $connection -> prepare("INSERT INTO articles_comment VALUES (?, ?, ?, ?, ?)");
+			$stmt -> bind_param("sssss", $_SESSION["article_id"], $_SESSION["username"], $comment, $timenow, $datenow);
+			$stmt -> execute();
 		}
 	}
 ?>

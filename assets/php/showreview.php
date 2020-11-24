@@ -20,7 +20,7 @@
 
 		// Get Fullname by username
 		$stmtUser = $connection -> prepare("SELECT * FROM user_details WHERE username = ?");
-		$stmtUser -> bind_param("s", $row["username"]);
+		$stmtUser -> bind_param("s", $_SESSION["username"]);
 		$stmtUser -> execute();
 		$resultUser = $stmtUser -> get_result();
 		$rowUser = $resultUser -> fetch_array(MYSQLI_ASSOC);
