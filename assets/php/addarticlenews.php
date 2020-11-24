@@ -15,6 +15,7 @@
  	$author_name = mysql_entities_fix_string($connection, $_POST["author_name"]);
  	$article_content = $_POST["article_content"];
  	$image_link = mysql_entities_fix_string($connection, $_POST["image_link"]);
+ 	$category = mysql_entities_fix_string($connection, $_POST["category"]);
  	$date = mysql_entities_fix_string($connection, $_POST["date"]);
 
  	// Generate random ID
@@ -24,8 +25,8 @@
 	$randomID .= bin2hex($bytes);
 
 	// Insert values - product details
-	$stmt = $connection -> prepare("INSERT INTO articles (article_id, author_name, article_title, article_desc, article_content, image_link, date) VALUES (?, ?, ?, ?, ?, ?, ?)");
-	$stmt -> bind_param("sssssss", $randomID, $author_name, $article_title, $article_desc, $article_content, $image_link, $date);
+	$stmt = $connection -> prepare("INSERT INTO articles VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+	$stmt -> bind_param("ssssssss", $randomID, $author_name, $article_title, $article_desc, $article_content, $image_link, $date, $category);
 	$stmt -> execute();
 
 	// Close all connection

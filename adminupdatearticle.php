@@ -163,10 +163,8 @@ div.content {
 			  
 			  <div class="col-sm-4">
 			  <label for="productCategory" class="form-label">Category</label><br>
-						<select name="type" required>
-				<option value="Game">Announcements</option>
-				<option value="Console">Product Release</option>
-				<option value="Accessories">Press Conference</option>
+						<select name="category" required>
+				<?php echo $_SESSION["category"]; ?>
 				</select>
 			  </div>
 			  

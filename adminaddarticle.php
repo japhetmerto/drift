@@ -156,10 +156,10 @@ div.content {
 			  
 			  <div class="col-sm-4">
         <label for="productCategory" class="form-label">Category</label><br>
-            <select name="type" required>
-        <option value="Game">Announcements</option>
-        <option value="Console">Product Release</option>
-        <option value="Accessories">Press Conference</option>
+            <select name="category" required>
+          <option value="Announcements">Announcements</option>
+          <option value="Product Release">Product Release</option>
+          <option value="Press Conference">Press Conference</option>
         </select>
         </div>
         

@@ -20,6 +20,22 @@
 	$_SESSION["image_link"] = $row["image_link"];
 	$_SESSION["date"] = $row["date"];
 
+	// if category is Announcements
+	if ($row["category"] == "Announcements") {
+		$_SESSION["category"] = "<option value='Announcements' selected='selected'>Announcements</option>
+				<option value='Product Release'>Product Release</option>
+				<option value='Press Conference'>Press Conference</option>";
+	} elseif ($row["category"] == "Product Release") {
+		$_SESSION["category"] = "<option value='Announcements'>Announcements</option>
+				<option value='Product Release' selected='selected'>Product Release</option>
+				<option value='Press Conference'>Press Conference</option>";
+	} else {
+		$_SESSION["category"] = "<option value='Announcements'>Announcements</option>
+				<option value='Product Release'>Product Release</option>
+				<option value='Press Conference' selected='selected'>Press Conference</option>";
+	}
+	
+
  	// Close all the connecitons
  	$result -> close();
  	$connection -> close();

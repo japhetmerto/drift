@@ -18,9 +18,10 @@
  	$article_content = mysql_entities_fix_string($connection, $_POST["article_content"]);
  	$image_link = mysql_entities_fix_string($connection, $_POST["image_link"]);
  	$date = mysql_entities_fix_string($connection, $_POST["date"]);
+ 	$category = mysql_entities_fix_string($connection, $_POST["category"]);
 
- 	$stmt = $connection -> prepare("UPDATE articles SET author_name = ?, article_title = ?, article_desc = ?, article_content = ?, image_link = ?, date = ?  WHERE article_id = ?");
-	$stmt -> bind_param("sssssss", $author_name, $article_title, $article_desc, $article_content, $image_link, $date, $_SESSION["article_id"]);
+ 	$stmt = $connection -> prepare("UPDATE articles SET author_name = ?, article_title = ?, article_desc = ?, article_content = ?, image_link = ?, date = ?, category = ? WHERE article_id = ?");
+	$stmt -> bind_param("ssssssss", $author_name, $article_title, $article_desc, $article_content, $image_link, $date, $category,$_SESSION["article_id"]);
 	$stmt -> execute();
 
 	// Close all the connecitons
