@@ -10,9 +10,17 @@
 
  	$article_id = $_GET["article_id"];
 
+ 	// Delete comments 
+	$stmt = $connection -> prepare("DELETE FROM articles_comment WHERE article_id = ?");
+	$stmt -> bind_param("s", $article_id);
+	$stmt -> execute();
+
+	// Then delete the article
  	$stmt = $connection -> prepare("DELETE FROM articles WHERE article_id = ?");
 	$stmt -> bind_param("s", $article_id);
 	$stmt -> execute();
+
+
 
 	// Close all the connections
 	$stmt -> close();

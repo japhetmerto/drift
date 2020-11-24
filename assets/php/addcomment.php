@@ -37,4 +37,11 @@
 			$stmt -> execute();
 		}
 	}
+
+	// Close all connections
+	$stmt -> close();
+	$connection -> close();
+
+	// Go back to last page
+	header("Location: " . $_SESSION["lastarticleurl"] . "#comments");
 ?>

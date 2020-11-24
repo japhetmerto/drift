@@ -171,27 +171,7 @@
 			  <hr class="bg-white">
 				  <div class="review text-white mt-5">
 					<div class="rattings-wrapper">
-						<div class="review-ratting">
-							<div class="star-author-all d-flex">
-								<div class="ratting-author">
-									<h3 class="ratting__name">Jane <span class="text-warning">Watson</span></h3>
-									<span>12:24</span>
-									<span class="pl-2">9 March 2018</span>
-								</div>
-							</div>
-
-							<div class="reviews_content clearfix pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam, quis nost rud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam, quis nost.</div>
-						</div>
-						<div class="review-ratting pt-5">
-							<div class="star-author-all d-flex">
-								<div class="ratting-author">
-									<h3 class="ratting__name">Emma <span class="text-warning">Doe</span></h3>
-									<span >12:24</span>
-									<span class="pl-2">9 March 2018</span>
-								</div>
-							</div>
-							<div class="reviews_content clearfix pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam, quis nost rud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam, quis nost.</div>
-						</div>
+						<?php require_once "assets/php/showcomment.php"; ?>
 					</div>
 				</div> 
 				
