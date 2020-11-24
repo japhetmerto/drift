@@ -321,9 +321,10 @@
 						</table>
 					  </div>
 					  <hr class="bg-white">
+					  <form class="needs-validation" action="checkout.html">
 					  <div>
 						  <label for="quantity">Quantity :</label>
-						  <input type="number" id="quantity" value="1" name="quantity" min="1" max="5">
+						  <input type="number" id="quantity" value="1" name="quantity" min="1" max="<?php echo $_SESSION["stock"]; ?>">
 					  </div>
 					  <div class="input-group mt-2 mb-3">
 						  <div class="input-group-prepend">
@@ -334,9 +335,10 @@
 						  </select>
 					  </div>
 					  <div class="text-center pt-3">
-						  <a href="checkout.html" type="button" class="btn btn-warning btn-md mr-1 mb-2">Buy now</a>
-						  <a href="shopping-cart.html" type="button" class="btn btn-warning btn-md mr-1 mb-2"><i class="fas fa-shopping-cart pr-2"></i>Add to cart</a>
-					  </div>
+						  <button action="checkout.html" type="submit" class="btn btn-warning btn-md mr-1 mb-2">Buy now</button>
+							  <button action="shopping-cart.html" type="submit" formaction="shopping-cart.html" class="btn btn-warning btn-md mr-1 mb-2"><i class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
+						  </div>
+					  </form>
 			  </div>
 			  
 

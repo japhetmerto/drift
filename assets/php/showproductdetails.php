@@ -109,7 +109,7 @@
 		$_SESSION["product_description"] = $row["product_description"];
 		$_SESSION["ratings"] = $row["ratings"];
 		$_SESSION["stock"] = $row["stock"];
-		$_SESSION["price"] = $row["price"];
+		$_SESSION["price"] = number_format((float)($row["price"] - ($row["discount_offer"] / 100) * $row["price"]), 2, '.', '');
 		$_SESSION["discount_offer"] = $row["discount_offer"];
 		$_SESSION["discount_price"] = $row["discount_price"];
 		$_SESSION["platform"] = $row["platform"];
@@ -131,7 +131,7 @@
 		$_SESSION["image_link"] = $image_link_arr;
 
 		// Get all the variants of the selected product
-		$query = "SELECT * FROM product_details NATURAL JOIN store_game WHERE product_id = '" . $_SESSION["product_id"] . "'";
+		$query = "SELECT * FROM product_details NATURAL JOIN store_console WHERE product_id = '" . $_SESSION["product_id"] . "'";
  		$result = $connection -> query($query);
 
  		$rows = $result->num_rows;
@@ -179,7 +179,7 @@
 		$_SESSION["product_description"] = $row["product_description"];
 		$_SESSION["ratings"] = $row["ratings"];
 		$_SESSION["stock"] = $row["stock"];
-		$_SESSION["price"] = $row["price"];
+		$_SESSION["price"] = number_format((float)($row["price"] - ($row["discount_offer"] / 100) * $row["price"]), 2, '.', '');
 		$_SESSION["discount_offer"] = $row["discount_offer"];
 		$_SESSION["discount_price"] = $row["discount_price"];
 		$_SESSION["platform"] = $row["platform"];
@@ -201,7 +201,7 @@
 		$_SESSION["image_link"] = $image_link_arr;
 
 		// Get all the variants of the selected product
-		$query = "SELECT * FROM product_details NATURAL JOIN store_game WHERE product_id = '" . $_SESSION["product_id"] . "'";
+		$query = "SELECT * FROM product_details NATURAL JOIN store_accessories WHERE product_id = '" . $_SESSION["product_id"] . "'";
  		$result = $connection -> query($query);
 
  		$rows = $result->num_rows;

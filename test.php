@@ -24,7 +24,6 @@
 	$datenow = date("j M Y");
 	*/
 
-	
 	$number = 13.50;
 	echo round($number, 0);
 
@@ -37,4 +36,17 @@
 
 	echo $number;
 	*/
+
+	// Archive example SQL
+	// SELECT MONTHNAME(date) as MONTH, Year(date) as YEAR FROM articles GROUP BY Year, Month ORDER BY date DESC
+
+	// Generate link
+	// SELECT * FROM articles WHERE MONTHNAME(date) = 'November' AND YEAR(date) = '2020'
+
+	// Sort by Popularity (by the number of comments)
+	// SELECT articles.article_title, COUNT(articles_comment.comment)
+	// FROM articles, articles_comment 
+	// WHERE articles.article_id = articles_comment.article_id 
+	// GROUP BY articles.article_title 
+	// ORDER BY COUNT(articles_comment.comment) DESC
 ?>

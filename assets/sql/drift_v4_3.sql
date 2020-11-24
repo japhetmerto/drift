@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2020 at 03:05 PM
+-- Generation Time: Nov 24, 2020 at 07:16 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.32
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `drift_v4_2`
+-- Database: `drift_v4_3`
 --
 
 -- --------------------------------------------------------
@@ -44,7 +44,7 @@ CREATE TABLE `articles` (
 --
 
 CREATE TABLE `articles_comment` (
-  `article_id` varchar(200) NOT NULL,
+  `article_id` varchar(200) DEFAULT NULL,
   `username` varchar(200) DEFAULT NULL,
   `comment` longtext DEFAULT NULL,
   `time` varchar(20) DEFAULT NULL,
@@ -271,7 +271,7 @@ ALTER TABLE `articles`
 -- Indexes for table `articles_comment`
 --
 ALTER TABLE `articles_comment`
-  ADD PRIMARY KEY (`article_id`);
+  ADD KEY `article_id` (`article_id`);
 
 --
 -- Indexes for table `average_rating`

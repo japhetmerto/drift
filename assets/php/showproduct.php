@@ -48,7 +48,7 @@
 
 		echo "<tr><td>" . $row["product_name"] . "</td>";
 		echo "<td>" . $row["variants"] . "</td>";
-		echo "<td>" . $row["price"] . "</td>";
+		echo "<td>" . number_format((float)($row["price"] - ($row["discount_offer"] / 100) * $row["price"]), 2, '.', '') . "</td>";
 		echo "<td>" . $row["stock"] . "</td>";
 		echo "<td>" . $row["platform"] . "</td>";
 		echo "<td>" . $row["date_release"] . "</td>";
@@ -72,7 +72,7 @@
 
 		echo "<tr><td>" . $row["product_name"] . "</td>";
 		echo "<td>" . $row["variants"] . "</td>";
-		echo "<td>" . $row["price"] . "</td>";
+		echo "<td>" . number_format((float)($row["price"] - ($row["discount_offer"] / 100) * $row["price"]), 2, '.', '') . "</td>";
 		echo "<td>" . $row["stock"] . "</td>";
 		echo "<td>" . $row["platform"] . "</td>";
 		echo "<td>" . $row["date_release"] . "</td>";

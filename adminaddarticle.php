@@ -146,7 +146,7 @@ div.content {
 				</div>
 			  </div>
 
-			  <div class="col-sm-6">
+			  <div class="col-sm-4">
 				<label for="imageLink" class="form-label">Image Link</label>
 				<input type="text" class="form-control" id="imageLink" required name="image_link">
 				<div class="invalid-feedback">
@@ -154,7 +154,16 @@ div.content {
 				</div>
 			  </div>
 			  
-			  <div class="col-sm-6">
+			  <div class="col-sm-4">
+        <label for="productCategory" class="form-label">Category</label><br>
+            <select name="type" required>
+        <option value="Game">Announcements</option>
+        <option value="Console">Product Release</option>
+        <option value="Accessories">Press Conference</option>
+        </select>
+        </div>
+        
+        <div class="col-sm-4">
 				<label for="date" class="form-label">Date</label>
 				<input type="date" class="form-control" id="date" required name="date">
 				<div class="invalid-feedback">
