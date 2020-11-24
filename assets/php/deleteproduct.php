@@ -28,38 +28,101 @@
 		$stmt -> execute();
  	}
 
- 	// If there is only one variant for the specific product, delete its product details also
+ 	// If there is no variant for the specific product, delete its product details also
  	if ($type == "Game") {
-	 	$query = "SELECT * FROM store_game WHERE product_id = $product_id";
-		$result = $connection -> query($query);
-		
-		$rows = $result -> num_rows;
+ 	 	$stmt = $connection -> prepare("SELECT * FROM store_game WHERE product_id = ?");
+		$stmt -> bind_param("s", $product_id);
+		$stmt -> execute();
+		$result = $stmt -> get_result();
+		$row = $result -> fetch_array(MYSQLI_ASSOC);
 
-		if ($rows == 0) {
+		if ($row == 0) {
+			// Get rating_id for this product
+	 	 	$stmt = $connection -> prepare("SELECT * FROM average_rating WHERE product_id = ?");
+			$stmt -> bind_param("s", $product_id);
+			$stmt -> execute();
+			$result = $stmt -> get_result();
+			$row = $result -> fetch_array(MYSQLI_ASSOC);
+
+			// Store rating id
+			$rating_id = $row["rating_id"];
+
+			// Delete in user rating
+			$stmt = $connection -> prepare("DELETE FROM user_rating WHERE rating_id = ?");
+			$stmt -> bind_param("s", $rating_id);
+			$stmt -> execute();
+
+			// Delete in average rating
+		 	$stmt = $connection -> prepare("DELETE FROM average_rating WHERE rating_id = ?");
+			$stmt -> bind_param("s", $rating_id);
+			$stmt -> execute();
+
 			// Delete in product_details
 		 	$stmt = $connection -> prepare("DELETE FROM product_details WHERE product_id = ?");
 			$stmt -> bind_param("s", $product_id);
 			$stmt -> execute();
 		}
 	} elseif ($type == "Console") {
-	 	$query = "SELECT * FROM store_console WHERE product_id = $product_id";
-		$result = $connection -> query($query);
-		
-		$rows = $result -> num_rows;
+	 	$stmt = $connection -> prepare("SELECT * FROM store_console WHERE product_id = ?");
+		$stmt -> bind_param("s", $product_id);
+		$stmt -> execute();
+		$result = $stmt -> get_result();
+		$row = $result -> fetch_array(MYSQLI_ASSOC);
 
-		if ($rows == 0) {
+		if ($row == 0) {
+			// Get rating_id for this product
+	 	 	$stmt = $connection -> prepare("SELECT * FROM average_rating WHERE product_id = ?");
+			$stmt -> bind_param("s", $product_id);
+			$stmt -> execute();
+			$result = $stmt -> get_result();
+			$row = $result -> fetch_array(MYSQLI_ASSOC);
+
+			// Store rating id
+			$rating_id = $row["rating_id"];
+
+			// Delete in user rating
+			$stmt = $connection -> prepare("DELETE FROM user_rating WHERE rating_id = ?");
+			$stmt -> bind_param("s", $rating_id);
+			$stmt -> execute();
+
+			// Delete in average rating
+		 	$stmt = $connection -> prepare("DELETE FROM average_rating WHERE rating_id = ?");
+			$stmt -> bind_param("s", $rating_id);
+			$stmt -> execute();
+
 			// Delete in product_details
 		 	$stmt = $connection -> prepare("DELETE FROM product_details WHERE product_id = ?");
 			$stmt -> bind_param("s", $product_id);
 			$stmt -> execute();
 		}
-	} else {
-	 	$query = "SELECT * FROM store_game WHERE product_id = $product_id";
-		$result = $connection -> query($query);
-		
-		$rows = $result -> num_rows;
+	} elseif ($type == "Accessories") {
+	 	$stmt = $connection -> prepare("SELECT * FROM store_accessories WHERE product_id = ?");
+		$stmt -> bind_param("s", $product_id);
+		$stmt -> execute();
+		$result = $stmt -> get_result();
+		$row = $result -> fetch_array(MYSQLI_ASSOC);
 
-		if ($rows == 0) {
+		if ($row == 0) {
+			// Get rating_id for this product
+	 	 	$stmt = $connection -> prepare("SELECT * FROM average_rating WHERE product_id = ?");
+			$stmt -> bind_param("s", $product_id);
+			$stmt -> execute();
+			$result = $stmt -> get_result();
+			$row = $result -> fetch_array(MYSQLI_ASSOC);
+
+			// Store rating id
+			$rating_id = $row["rating_id"];
+
+			// Delete in user rating
+			$stmt = $connection -> prepare("DELETE FROM user_rating WHERE rating_id = ?");
+			$stmt -> bind_param("s", $rating_id);
+			$stmt -> execute();
+
+			// Delete in average rating
+		 	$stmt = $connection -> prepare("DELETE FROM average_rating WHERE rating_id = ?");
+			$stmt -> bind_param("s", $rating_id);
+			$stmt -> execute();
+
 			// Delete in product_details
 		 	$stmt = $connection -> prepare("DELETE FROM product_details WHERE product_id = ?");
 			$stmt -> bind_param("s", $product_id);
