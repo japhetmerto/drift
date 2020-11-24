@@ -151,7 +151,7 @@ div.content {
 			  
 			  <div class="col-sm-4">
 				<label for="productPrice" class="form-label">Product Price</label>
-				<input type="number" class="form-control" id="price" required name="price">
+				<input type="number" class="form-control" id="price" required name="price" step="any">
 				<div class="invalid-feedback">
 				  Please enter a valid Price.
 				</div>
@@ -159,7 +159,7 @@ div.content {
 			  
 			  <div class="col-sm-4">
 				<label for="productTempPrice" class="form-label">Discount Offer</label>
-				<input type="number" class="form-control" id="discount" required name="discount_offer">
+				<input type="number" class="form-control" id="discount" name="discount_offer" step="any">
 				<div class="invalid-feedback">
 				  Please enter a valid Temp Price.
 				</div>
@@ -167,10 +167,7 @@ div.content {
 			  
 			  <div class="col-sm-4">
 				<label for="productTempPrice" class="form-label">Discount Price</label>
-				<input type="number" onclick="getPrice()" class="form-control" id="total" required name="discount_price">
-				<div class="invalid-feedback">
-				  Please enter a valid Temp Price.
-				</div>
+				<input type="number" onclick="getPrice()" class="form-control" id="total" name="discount_price" step="any">
 			  </div>
 			  
 			  <div class="col-sm-4">

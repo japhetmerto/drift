@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+	require_once "assets/php/utilities.php";
+	session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,14 +45,7 @@
               </div>
             </form>
 		  </div>
-		  <div class="col-3">
-			 <a class="btn btn-sm btn-warning text-black mr-2" data-toggle="modal">Hi <?php 
-			 		if(isset($_SESSION["firstname"])) {
-			 			echo $_SESSION["firstname"];
-			 		}
-	 			?>!</a>
-             <a class="btn btn-sm text-light d-none d-sm-inline-block style" href="assets/php/logout.php">Log Out</a>
-		  </div>
+		  <?php showUserName(); ?>
 		  <div class="nav-item">
 			<a class=" order-xl-last nav-link small bg" data-toggle="canvas" href="#member" aria-expanded="false" aria-controls="bs-canvas-right" role="button">
 				<i class="fas fa-crown text-white"></i>

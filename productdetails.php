@@ -5,7 +5,9 @@
 	$_SESSION["type"] = $_GET["type"];
 	$_SESSION["variants"] = $_GET["variants"];
 
+	require_once "assets/php/utilities.php";
 	require_once 'assets/php/showproductdetails.php';
+	require_once 'assets/php/showrating.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -172,10 +174,7 @@
               </div>
             </form>
 		  </div>
-		  <div class="col-2">
-			 <a class="btn btn-sm btn-warning text-black mr-2" href="signin.html">Sign in</a>
-             <a class="btn btn-sm text-light d-none d-sm-inline-block style" href="Register.html">Sign up</a>
-		  </div>
+		   <?php showUserName(); ?>
 		  <div class="nav-item">
 			<a class=" order-xl-last nav-link small bg" data-toggle="canvas" href="#member" aria-expanded="false" aria-controls="bs-canvas-right" role="button">
 				<i class="fas fa-crown text-white"></i>
@@ -221,8 +220,8 @@
 		<div class="container pt-3">
 			<nav aria-label="breadcrumb">
 			  <ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="main.html" class="text-secondary">Home</a></li>
-				<li class="breadcrumb-item"><a href="store.html" class="text-secondary"><?php echo $_SESSION["type"]; ?></a></li>
+				<li class="breadcrumb-item"><a href="index.php" class="text-secondary">Home</a></li>
+				<li class="breadcrumb-item"><a href="index.php" class="text-secondary"><?php echo $_SESSION["type"]; ?></a></li>
 				<li class="breadcrumb-item active" aria-current="page"><?php echo $_SESSION["product_name"]; ?></li>
 			  </ol>
 			</nav>
@@ -300,11 +299,7 @@
 				<h4><?php echo $_SESSION["newproduct_name"]; ?></h4>
 					  <p class="mb-2 text-muted text-uppercase small"><?php echo $_SESSION["type"]; ?></p>
 						<div class="rating">
-							<li class="fa fa-star text-warning"></li>
-							<li class="fa fa-star text-warning"></li>
-							<li class="fa fa-star text-warning"></li>
-							<li class="fa fa-star text-warning"></li>
-							<li class="fa fa-star text-warning"><span class="text-secondary">&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $_SESSION["ratings"]; ?> Ratings</span></li>
+							<?php echo $_SESSION["ratingStars"]; ?><span class="text-secondary">&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $_SESSION["ratings"]; ?> Ratings</span></li>
 						</div>
 					  <h4 class="mt-3"><span class="mr-1"><strong>RM <?php echo $_SESSION["price"]; ?></strong></span></h4>
 					  <div class="table-responsive">
@@ -351,15 +346,11 @@
 	  
 	  
 	   <!----- Ratings ----->
-	   <section class="content-section" style="background-color:transparent;" >
+	   <section class="content-section" style="background-color:transparent;">
 		  <div class="container mt-5 text-white">
-				<h3>User <b class="text-warning">Rating</b></h3>
-				<span class="fa fa-star checked text-warning"></span>
-				<span class="fa fa-star checked text-warning"></span>
-				<span class="fa fa-star checked text-warning"></span>
-				<span class="fa fa-star checked text-warning"></span>
-				<span class="fa fa-star"></span>
-				<p>4.1 average based on 254 reviews.</p>
+		  		<h3 id="ratings">User <b class="text-warning">Rating</b></h3>
+				<?php echo $_SESSION["userRatingStars"]; ?>
+				<p><?php echo $_SESSION["average_rating"] . " average based on " . $_SESSION["total_reviews"] . " reviews." ?></p>
 				<hr style="border:3px solid #f1f1f1">
 
 				<div class="row px-3">
@@ -368,103 +359,68 @@
 				  </div>
 				  <div class="middle">
 					<div class="bar-container">
-					  <div class="bar-5"></div>
+					  <div class="bar-5" style="width:<?php echo $_SESSION["fivestar_graph"]; ?>%"></div>
 					</div>
 				  </div>
 				  <div class="side right">
-					<div>150</div>
+					<div><?php echo $_SESSION["fivestar_amount"] ?></div>
 				  </div>
 				  <div class="side">
 					<div>4 star</div>
 				  </div>
 				  <div class="middle">
 					<div class="bar-container">
-					  <div class="bar-4"></div>
+					  <div class="bar-4" style="width:<?php echo $_SESSION["fourstar_graph"]; ?>%"></div>
 					</div>
 				  </div>
 				  <div class="side right">
-					<div>63</div>
+					<div><?php echo $_SESSION["fourstar_amount"]; ?></div>
 				  </div>
 				  <div class="side">
 					<div>3 star</div>
 				  </div>
 				  <div class="middle">
 					<div class="bar-container">
-					  <div class="bar-3"></div>
+					  <div class="bar-3" style="width:<?php echo $_SESSION["threestar_graph"]; ?>%"></div>
 					</div>
 				  </div>
 				  <div class="side right">
-					<div>15</div>
+					<div><?php echo $_SESSION["threestar_amount"]; ?></div>
 				  </div>
 				  <div class="side">
 					<div>2 star</div>
 				  </div>
 				  <div class="middle">
 					<div class="bar-container">
-					  <div class="bar-2"></div>
+					  <div class="bar-2" style="width:<?php echo $_SESSION["twostar_graph"]; ?>%"></div>
 					</div>
 				  </div>
 				  <div class="side right">
-					<div>6</div>
+					<div><?php echo $_SESSION["twostar_amount"]; ?></div>
 				  </div>
 				  <div class="side">
 					<div>1 star</div>
 				  </div>
 				  <div class="middle">
 					<div class="bar-container">
-					  <div class="bar-1"></div>
+					  <div class="bar-1" style="width:<?php echo $_SESSION["onestar_graph"]; ?>%"></div>
 					</div>
 				  </div>
 				  <div class="side right">
-					<div>20</div>
+					<div><?php echo $_SESSION["onestar_amount"]; ?></div>
 				  </div>
 				</div>
 				<hr class="bg-white mt-5">
 			
 				<div class="review text-white mt-5">
 					<div class="rattings-wrapper">
-						<div class="review-ratting">
-							<div class="star-author-all d-flex">
-								<div class="ratting-author">
-									<h3 class="ratting__name">Jane <span class="text-warning">Watson</span></h3>
-									<span>12:24</span>
-									<span class="pl-2">9 March 2018</span>
-								</div>
-								<div class="star-rating pt-1 pl-3">
-									<span class="fa fa-star text-warning" aria-hidden="true"></span>
-									<span class="fa fa-star text-warning" aria-hidden="true"></span>
-									<span class="fa fa-star text-warning" aria-hidden="true"></span>
-									<span class="fa fa-star text-warning" aria-hidden="true"></span>
-									<span class="fa fa-star text-warning" aria-hidden="true"></span>
-									<span>(5)</span>
-								</div>
-							</div>
-
-							<div class="reviews_content clearfix pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam, quis nost rud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam, quis nost.</div>
-						</div>
-						<div class="review-ratting pt-5">
-							<div class="star-author-all d-flex">
-								<div class="ratting-author">
-									<h3 class="ratting__name">Emma <span class="text-warning">Doe</span></h3>
-									<span >12:24</span>
-									<span class="pl-2">9 March 2018</span>
-								</div>
-								<div class="star-rating pt-1 pl-3">
-									<span class="fa fa-star text-warning" aria-hidden="true"></span>
-									<span class="fa fa-star text-warning" aria-hidden="true"></span>
-									<span class="fa fa-star text-warning" aria-hidden="true"></span>
-									<span class="fa fa-star text-warning" aria-hidden="true"></span>
-									<span class="fa fa-star text-warning" aria-hidden="true"></span>
-									<span>(5)</span>
-								</div>
-							</div>
-							<div class="reviews_content clearfix pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam, quis nost rud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam, quis nost.</div>
-						</div>
+						<?php require "assets/php/showreview.php"; ?>
 					</div>
 				</div> 
 				
 				<!----- Way to comment ------->
-				<form class="form-product-review pt-5" method="post">
+				<script src="assets/js/rating.js"></script>
+				<form class="form-product-review pt-5" id="ratingForm" name="ratingForm" method="post" action="assets/php/addrating.php" onsubmit="DoSubmit()">
 					<h5>ADD <b class="text-warning">YOUR</b> REVIEW</h5>
 					<div class="form-group">
 						<label class="control-label">Your Rating</label>
@@ -487,6 +443,7 @@
 							  </li>
 							</ul>
 						 </div>
+						 <input type="hidden" id="ratingStars" name="ratingStars" value="0"/>
 					</div>
 					<div class="form-group">
 						<label class="control-label" for="comment">Your Review</label>

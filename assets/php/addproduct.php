@@ -57,22 +57,51 @@
 	$ratings = "0";
 
 	// Insert values - product details
-	$stmt = $connection -> prepare("INSERT INTO product_details (product_id, product_name, product_description, type, platform, developer, date_release, image_link, ratings) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-	$stmt -> bind_param("sssssssss", $randomID, $product_name, $product_description, $type, $platform, $developer, $date_release, $image_link, $ratings);
+	$stmt = $connection -> prepare("INSERT INTO product_details VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	$stmt -> bind_param("sssssssss", $randomID, $product_name, $product_description, $type, $ratings, $platform, $developer, $date_release, $image_link);
 	$stmt -> execute();
 
 	// Insert values by the product type
 	if ($type == "Game") {
-		$stmt = $connection -> prepare("INSERT INTO store_game (product_id, product_name, variants, discount_offer, price, discount_price, stock, isMembershipExclusive) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-		$stmt -> bind_param("ssssssss", $randomID, $product_name, $variants, $discount_offer, $price, $discount_price, $stock, $isMembershipExclusive);
+		$stmt = $connection -> prepare("INSERT INTO store_game VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt -> bind_param("ssssddis", $randomID, $product_name, $variants, $discount_offer, $price, $discount_price, $stock, $isMembershipExclusive);
 		$stmt -> execute();
 	} elseif ($type == "Console") {
-		$stmt = $connection -> prepare("INSERT INTO store_console (product_id, product_name, variants, discount_offer, price, discount_price, stock) VALUES (?, ?, ?, ?, ?, ?, ?)");
-		$stmt -> bind_param("sssssss", $randomID, $product_name, $variants, $discount_offer, $price, $discount_price, $stock);
+		$stmt = $connection -> prepare("INSERT INTO store_console VALUES (?, ?, ?, ?, ?, ?, ?)");
+		$stmt -> bind_param("ssssddi", $randomID, $product_name, $variants, $discount_offer, $price, $discount_price, $stock);
 		$stmt -> execute();
 	} else {
-		$stmt = $connection -> prepare("INSERT INTO store_accessories (product_id, product_name, variants, discount_offer, price, discount_price, stock) VALUES (?, ?, ?, ?, ?, ?, ?)");
-		$stmt -> bind_param("sssssss", $randomID, $product_name, $variants, $discount_offer, $price, $discount_price, $stock);
+		$stmt = $connection -> prepare("INSERT INTO store_accessories VALUES (?, ?, ?, ?, ?, ?, ?)");
+		$stmt -> bind_param("ssssddi", $randomID, $product_name, $variants, $discount_offer, $price, $discount_price, $stock);
+		$stmt -> execute();
+	}
+
+
+	// If there is an existing game
+	$stmt = $connection -> prepare("SELECT * FROM average_rating WHERE product_id = ?");
+	$stmt -> bind_param("s", $randomID);
+	$stmt -> execute();
+	$result = $stmt -> get_result();
+
+	// If game not found
+	if (!$result -> num_rows) {
+		// Ratings
+		// Generate random ID
+		$rating_id = "";
+		$bytes= random_bytes(5);
+		$rating_id .="RATE-";
+		$rating_id .= bin2hex($bytes);
+
+		$total_reviews = "0";
+		$average_rating = "0";
+		$fivestar_amount = 0;
+		$fourstar_amount = 0;
+		$threestar_amount = 0;
+		$twostar_amount = 0;
+		$onestar_amount = 0;
+
+		$stmt = $connection -> prepare("INSERT INTO average_rating VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt -> bind_param("ssssiiiii", $rating_id, $randomID, $total_reviews, $average_rating, $fivestar_amount, $fourstar_amount, $threestar_amount, $twostar_amount, $onestar_amount);
 		$stmt -> execute();
 	}
 

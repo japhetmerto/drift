@@ -36,4 +36,22 @@
 	function showAdminName() {
 		echo $_SESSION["firstname"];
 	}
+
+	function showUserName() {
+		// Check if logged in
+		// If logged in
+		if (isset($_SESSION["username"])) {
+			echo "<div class='col-3'>
+		 		<a class='btn btn-sm btn-warning text-black mr-2' data-toggle='modal'>Hi " . $_SESSION['firstname'] . " !
+	 			</a>
+             	<a class='btn btn-sm text-light d-none d-sm-inline-block style' href='assets/php/logout.php'>Log Out</a>
+		  		</div>";
+		} else {
+			// If not logged in
+			echo "<div class='col-2'>
+				<a class='btn btn-sm btn-warning text-black mr-2' href='signin.php'>Sign in</a>
+            	<a class='btn btn-sm text-light d-none d-sm-inline-block style' href='register.php'>Sign up</a>
+		  		</div>";
+		}
+	}
 ?>

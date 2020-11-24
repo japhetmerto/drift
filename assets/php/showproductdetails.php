@@ -8,6 +8,9 @@
  		die("Database Connection Error");
  	}
 
+ 	// Store current url
+	$_SESSION["lastproducturl"] = $_SERVER['REQUEST_URI'];
+
  	if ($_SESSION["type"] == "Game") {
  		$query = "SELECT * FROM product_details NATURAL JOIN store_game WHERE product_id = '" . $_SESSION["product_id"] . "' AND variants = '" . $_SESSION["variants"] . "'";
  		$result = $connection -> query($query);
@@ -36,7 +39,7 @@
 		$_SESSION["product_description"] = $row["product_description"];
 		$_SESSION["ratings"] = $row["ratings"];
 		$_SESSION["stock"] = $row["stock"];
-		$_SESSION["price"] = ($row["price"] - ($row["discount_offer"] / 100) * $row["price"]);
+		$_SESSION["price"] = number_format((float)($row["price"] - ($row["discount_offer"] / 100) * $row["price"]), 2, '.', '');
 		$_SESSION["discount_offer"] = $row["discount_offer"];
 		$_SESSION["discount_price"] = $row["discount_price"];
 		$_SESSION["platform"] = $row["platform"];

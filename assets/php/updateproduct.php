@@ -44,15 +44,15 @@
 	// Insert values by the product type
 	if ($type == "Game") {
 		$stmt = $connection -> prepare("UPDATE store_game SET product_name = ?, variants = ?, discount_offer = ?, price = ?, discount_price = ?, stock = ?, isMembershipExclusive = ? WHERE product_id = ?");
-		$stmt -> bind_param("ssssssss", $product_name, $variants, $discount_offer, $price, $discount_price, $stock, $isMembershipExclusive, $_SESSION["product_id"]);
+		$stmt -> bind_param("sssddiss", $product_name, $_SESSION["variants"], $discount_offer, $price, $discount_price, $stock, $isMembershipExclusive, $_SESSION["product_id"]);
 		$stmt -> execute();
 	} elseif ($type == "Console") {
 		$stmt = $connection -> prepare("UPDATE store_console SET product_name = ?, variants = ?, discount_offer = ?, price = ?, discount_price = ?, stock = ? WHERE product_id = ?");
-		$stmt -> bind_param("sssssss", $product_name, $variants, $discount_offer, $price, $discount_price, $stock, $_SESSION["product_id"]);
+		$stmt -> bind_param("sssddis", $product_name, $_SESSION["variants"], $discount_offer, $price, $discount_price, $stock, $_SESSION["product_id"]);
 		$stmt -> execute();
 	} else {
 		$stmt = $connection -> prepare("UPDATE store_accessories SET product_name = ?, variants = ?, discount_offer = ?, price = ?, discount_price = ?, stock = ? WHERE product_id = ?");
-		$stmt -> bind_param("sssssss", $product_name, $variants, $discount_offer, $price, $discount_price, $stock, $_SESSION["product_id"]);
+		$stmt -> bind_param("sssddis", $product_name, $_SESSION["variants"], $discount_offer, $price, $discount_price, $stock, $_SESSION["product_id"]);
 		$stmt -> execute();
 	}
 

@@ -7,4 +7,8 @@
 	$lastItem = substr($string, $lastItemStart);
 
 	echo $firstItem;
+
+	$number = 102.32;
+
+	echo number_format((float)$102.32, 2, '.', '');
 ?>

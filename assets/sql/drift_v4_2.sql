@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2020 at 07:51 AM
+-- Generation Time: Nov 23, 2020 at 03:05 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.32
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `drift_v3_4`
+-- Database: `drift_v4_2`
 --
 
 -- --------------------------------------------------------
@@ -35,6 +35,20 @@ CREATE TABLE `articles` (
   `article_content` longtext DEFAULT NULL,
   `image_link` varchar(200) DEFAULT NULL,
   `date` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles_comment`
+--
+
+CREATE TABLE `articles_comment` (
+  `article_id` varchar(200) NOT NULL,
+  `username` varchar(200) DEFAULT NULL,
+  `comment` longtext DEFAULT NULL,
+  `time` varchar(20) DEFAULT NULL,
+  `date` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -65,11 +79,11 @@ CREATE TABLE `cart` (
   `cart_id` varchar(200) NOT NULL,
   `user_id` varchar(200) DEFAULT NULL,
   `no_of_items` int(20) DEFAULT NULL,
-  `full_price` int(20) DEFAULT NULL,
-  `discount` int(20) DEFAULT NULL,
+  `full_price` double DEFAULT NULL,
+  `discount` double DEFAULT NULL,
   `tax` int(20) DEFAULT NULL,
   `shipping` int(20) DEFAULT NULL,
-  `total_amount` int(20) DEFAULT NULL
+  `total_amount` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -84,7 +98,7 @@ CREATE TABLE `checkout` (
   `user_id` varchar(200) DEFAULT NULL,
   `checkout_date` varchar(200) DEFAULT NULL,
   `no_of_items` int(20) DEFAULT NULL,
-  `total_amount` int(20) DEFAULT NULL,
+  `total_amount` double DEFAULT NULL,
   `address` varchar(200) DEFAULT NULL,
   `address2` varchar(200) DEFAULT NULL,
   `country` varchar(200) DEFAULT NULL,
@@ -109,7 +123,7 @@ CREATE TABLE `item` (
   `product_id` varchar(200) DEFAULT NULL,
   `product_name` varchar(200) DEFAULT NULL,
   `quantity` int(20) DEFAULT NULL,
-  `price` int(20) DEFAULT NULL
+  `price` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -154,7 +168,7 @@ CREATE TABLE `product_details` (
 CREATE TABLE `promo_code` (
   `billing_id` varchar(200) DEFAULT NULL,
   `code` varchar(200) DEFAULT NULL,
-  `discount` int(200) DEFAULT NULL
+  `discount` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -168,8 +182,8 @@ CREATE TABLE `store_accessories` (
   `product_name` varchar(200) DEFAULT NULL,
   `variants` varchar(200) DEFAULT NULL,
   `discount_offer` varchar(200) DEFAULT NULL,
-  `price` int(20) DEFAULT NULL,
-  `discount_price` int(20) DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `discount_price` double DEFAULT NULL,
   `stock` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -184,8 +198,8 @@ CREATE TABLE `store_console` (
   `product_name` varchar(200) DEFAULT NULL,
   `variants` varchar(200) DEFAULT NULL,
   `discount_offer` varchar(200) DEFAULT NULL,
-  `price` int(20) DEFAULT NULL,
-  `discount_price` int(20) DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `discount_price` double DEFAULT NULL,
   `stock` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -200,8 +214,8 @@ CREATE TABLE `store_game` (
   `product_name` varchar(200) DEFAULT NULL,
   `variants` varchar(200) DEFAULT NULL,
   `discount_offer` varchar(200) DEFAULT NULL,
-  `price` int(20) DEFAULT NULL,
-  `discount_price` int(20) DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `discount_price` double DEFAULT NULL,
   `stock` int(20) DEFAULT NULL,
   `isMembershipExclusive` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -235,7 +249,7 @@ CREATE TABLE `user_details` (
 --
 
 CREATE TABLE `user_rating` (
-  `rating_id` varchar(200) NOT NULL,
+  `rating_id` varchar(200) DEFAULT NULL,
   `username` varchar(200) DEFAULT NULL,
   `rating` varchar(200) DEFAULT NULL,
   `review` longtext DEFAULT NULL,
@@ -251,6 +265,12 @@ CREATE TABLE `user_rating` (
 -- Indexes for table `articles`
 --
 ALTER TABLE `articles`
+  ADD PRIMARY KEY (`article_id`);
+
+--
+-- Indexes for table `articles_comment`
+--
+ALTER TABLE `articles_comment`
   ADD PRIMARY KEY (`article_id`);
 
 --
@@ -330,11 +350,17 @@ ALTER TABLE `user_details`
 -- Indexes for table `user_rating`
 --
 ALTER TABLE `user_rating`
-  ADD PRIMARY KEY (`rating_id`);
+  ADD KEY `rating_id` (`rating_id`);
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `articles_comment`
+--
+ALTER TABLE `articles_comment`
+  ADD CONSTRAINT `articles_comment_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `articles` (`article_id`);
 
 --
 -- Constraints for table `average_rating`
