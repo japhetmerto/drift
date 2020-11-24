@@ -59,7 +59,12 @@
  	// User Ratings graphs
  	// 5 Star
  	$fivestar_amount = $row["5star_amount"];
- 	$fivestar_graph = round((((int)$row["5star_amount"] / (int)$row["total_reviews"]) * 100), 0);
+ 	if ($row["total_reviews"] == 0) {
+ 		$fivestar_graph == 0;
+ 	} else {
+ 		$fivestar_graph = round((((int)$row["5star_amount"] / (int)$row["total_reviews"]) * 100), 0);
+ 	}
+ 	
  	// echo "<br>fivestar_graph: " . $fivestar_graph;
 
  	$_SESSION["fivestar_amount"] = $fivestar_amount;
@@ -67,7 +72,12 @@
 
  	// 4 Star
  	$fourstar_amount = $row["4star_amount"];
- 	$fourstar_graph = round((((int)$row["4star_amount"] / (int)$row["total_reviews"]) * 100), 0);
+ 	if ($row["total_reviews"] == 0) {
+ 		$fourstar_graph == 0;
+ 	} else {
+ 		$fourstar_graph = round((((int)$row["4star_amount"] / (int)$row["total_reviews"]) * 100), 0);
+ 	}
+ 	
  	// echo "<br>fivestar_graph: " . $fourstar_graph;
 
  	$_SESSION["fourstar_amount"] = $fourstar_amount;
@@ -75,7 +85,12 @@
 
  	// 3 Star
  	$threestar_amount = $row["3star_amount"];
- 	$threestar_graph = round((((int)$row["3star_amount"] / (int)$row["total_reviews"]) * 100), 0);
+ 	if ($row["total_reviews"] == 0) {
+ 		$threestar_graph == 0;
+ 	} else {
+ 		$threestar_graph = round((((int)$row["3star_amount"] / (int)$row["total_reviews"]) * 100), 0);
+ 	}
+ 	
  	// echo "<br>threestar_graph: " . $threestar_graph;
 
  	$_SESSION["threestar_amount"] = $threestar_amount;
@@ -83,7 +98,12 @@
 
  	// 2 Star
  	$twostar_amount = $row["2star_amount"];
- 	$twostar_graph = round((((int)$row["2star_amount"] / (int)$row["total_reviews"]) * 100), 0);
+ 	if ($row["total_reviews"] == 0) {
+ 		$twostar_graph == 0;
+ 	} else {
+ 		$twostar_graph = round((((int)$row["2star_amount"] / (int)$row["total_reviews"]) * 100), 0);
+ 	}
+ 	
  	// echo "<br>twostar_graph: " . $twostar_graph;
 
  	$_SESSION["twostar_amount"] = $twostar_amount;
@@ -91,7 +111,12 @@
 
  	// 1 Star
  	$onestar_amount = $row["1star_amount"];
- 	$onestar_graph = round((((int)$row["1star_amount"] / (int)$row["total_reviews"]) * 100), 0);
+ 	if ($row["total_reviews"] == 0) {
+ 		$onestar_graph == 0;
+ 	} else {
+ 		$onestar_graph = round((((int)$row["1star_amount"] / (int)$row["total_reviews"]) * 100), 0);
+ 	}
+ 	
  	// echo "<br>onestar_graph: " . $onestar_graph;
 
  	$_SESSION["onestar_amount"] = $onestar_amount;

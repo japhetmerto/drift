@@ -8,6 +8,9 @@
  		die("Database Connection Error");
  	}
 
+ 	// Store current url
+	$_SESSION["lastarticleurl"] = $_SERVER['REQUEST_URI'];
+
 	$stmt = $connection -> prepare("SELECT * FROM articles WHERE article_id = ?");
 	$stmt -> bind_param("s", $_SESSION["article_id"]);
 	$stmt -> execute();

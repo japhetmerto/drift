@@ -1,7 +1,6 @@
 <?php
 	require_once "assets/php/databaseconfig.php";
 	require_once "assets/php/utilities.php";
-
 	session_start();
 
 	// Connect to the database
@@ -12,6 +11,7 @@
  	}
 
 	$_SESSION["article_id"] = mysql_entities_fix_string($connection, $_GET["article_id"]);
+
 
 	require_once 'assets/php/showarticledetails.php';
 ?>
@@ -58,10 +58,7 @@
               </div>
             </form>
 		  </div>
-		  <div class="col-2">
-			 <a class="btn btn-sm btn-warning text-black mr-2" href="signin.html">Sign in</a>
-             <a class="btn btn-sm text-light d-none d-sm-inline-block style" href="Register.html">Sign up</a>
-		  </div>
+		  <?php showUserName(); ?>
 		  <div class="nav-item">
 			<a class=" order-xl-last nav-link small bg" data-toggle="canvas" href="#member" aria-expanded="false" aria-controls="bs-canvas-right" role="button">
 				<i class="fas fa-crown text-white"></i>
@@ -170,7 +167,7 @@
 			  
 			  
 			  <!----- Comments ------>
-			  <h3 class="text-warning pt-5">Comments</h3>
+			  <h3 id="comments" class="text-warning pt-5">Comments</h3>
 			  <hr class="bg-white">
 				  <div class="review text-white mt-5">
 					<div class="rattings-wrapper">
@@ -199,7 +196,7 @@
 				</div> 
 				
 				<!----- Way to comment ------->
-				<form class="form-product-review pt-5 text-white" method="post">
+				<form class="form-product-review pt-5 text-white" method="post" action="assets/php/addcomment.php">
 					<h5>ADD <b class="text-warning">YOUR</b> COMMENT</h5>
 					<div class="form-group">
 						<textarea id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea>

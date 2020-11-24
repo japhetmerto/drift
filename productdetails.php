@@ -1,13 +1,12 @@
 <?php
+	require_once "assets/php/utilities.php";
+	require_once 'assets/php/showproductdetails.php';
+	require_once 'assets/php/showrating.php';
 	session_start();
 
 	$_SESSION["product_id"] = $_GET["product_id"];
 	$_SESSION["type"] = $_GET["type"];
 	$_SESSION["variants"] = $_GET["variants"];
-
-	require_once "assets/php/utilities.php";
-	require_once 'assets/php/showproductdetails.php';
-	require_once 'assets/php/showrating.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
