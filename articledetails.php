@@ -111,8 +111,8 @@
 		
 		
 			<div class="card text-white bg-transparent rounded">
-			  <img src="assets/img/bg/<?php echo $_SESSION["image_link"]; ?>" class="card-img" alt="...">
-			  <div class="card-img-overlay col-md-6 p-4">
+			  <img src="assets/img/bg/<?php echo $_SESSION["image_link"]; ?>" class="card-img" alt="title" style="opacity:0.25; height:350px; object-fit:cover;">
+			  <div class="card-img-overlay col-md-8 p-4">
 				<h1 class="display-4 font-italic text-warning"><b><?php echo $_SESSION["article_title"]; ?></b></h1>
 				<p class="lead my-3"><?php echo $_SESSION["article_desc"]; ?></p>
 				<p class="lead mb-0"><?php echo $_SESSION["date"]; ?></p>
@@ -122,7 +122,7 @@
 			<div class="row pt-5">
 				<div class="col-md-8">
 				  <h3 class="pb-4 mb-4 font-italic border-bottom text-white">
-					From the <b class="text-warning"><?php echo $_SESSION["author_name"]; ?></b>
+					From <b class="text-warning"><?php echo $_SESSION["author_name"]; ?></b>
 				  </h3>
 
 				  <div class="blog-post text-white">
@@ -150,15 +150,6 @@
 					  <li><a href="#" class="text-white">June 2015</a></li>
 					  <li><a href="#" class="text-white">May 2014</a></li>
 					  <li><a href="#" class="text-white">April 2013</a></li>
-					</ol>
-				  </div>
-
-				  <div class="p-4 mt-3 border rounded ">
-					<h4 class="font-italic text-warning">Elsewhere</h4>
-					<ol class="list-unstyled">
-					  <li><a href="#" class="text-white fab fa-github"> GitHub</a></li>
-					  <li><a href="#" class="text-white fab fa-twitter"> Twitter</a></li>
-					  <li><a href="#" class="text-white fab fa-facebook-square"> Facebook</a></li>
 					</ol>
 				  </div>
 				</aside>

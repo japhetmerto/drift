@@ -53,6 +53,18 @@
 		$stmt = $connection -> prepare("INSERT INTO user_details (user_id, user_type, fname, lname, username, password, email) VALUES (?, ?, ?, ?, ?, ?, ?)");
  		$stmt -> bind_param("sssssss", $randomID, $userType, $firstname, $lastname, $username, $hash, $email);
  		$stmt -> execute();
+
+ 		// New User, new cart id
+ 		$cartID = "";
+ 		$bytes = "";
+		$bytes= random_bytes(5);
+		$cartID .="CART-";
+		$cartID .= bin2hex($bytes);
+
+		$zeroValue = "0";
+		$stmt = $connection -> prepare("INSERT INTO cart VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+ 		$stmt -> bind_param("ssssssss", $cartID, $randomID, $zeroValue, $zeroValue, $zeroValue, $zeroValue, $zeroValue, $zeroValue,);
+ 		$stmt -> execute();
  		
 		// Redirect to registersuccessful
 		header("Location: ../../registersuccessful.php");

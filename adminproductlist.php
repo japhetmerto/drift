@@ -77,7 +77,6 @@ body {
 div.content {
   margin-left: 200px;
   padding: 1px 16px;
-  height: 1000px;
 }
 
 @media screen and (max-width: 700px) {
@@ -97,7 +96,7 @@ div.content {
   }
 }
 </style>
-<body>
+<body style="background-color:#d7dbde;">
 <div class="sidebar max-width auto" style="color:#000;background-color:#bdc3c7">
 	<center>
     <h3>Hello, Anon</h3>
@@ -109,7 +108,7 @@ div.content {
   <a href="assets/php/logout.php"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Logout</a>
   </center>
 </div>
-<div class="content" style="background-color:#d7dbde;">
+<div class="content">
 <center>
 <br>
 <h1>Product List</h1>

@@ -24,9 +24,10 @@
 	$datenow = date("j M Y");
 	*/
 
+	/*
 	$number = 13.50;
 	echo round($number, 0);
-
+	*/
 	/*
 	echo $_SERVER['REQUEST_URI'];
 	*/
@@ -49,4 +50,30 @@
 	// WHERE articles.article_id = articles_comment.article_id 
 	// GROUP BY articles.article_title 
 	// ORDER BY COUNT(articles_comment.comment) DESC
+
+	// Whats HOT home
+	/*SELECT * FROM product_details, average_rating WHERE product_details.product_id = average_rating.product_id ORDER BY average_rating.average_rating DESC LIMIT 8;
+
+	SELECT * FROM product_details, average_rating WHERE product_details.product_id = average_rating.product_id ORDER BY average_rating.average_rating DESC LIMIT 4;
+
+	SELECT * FROM product_details, average_rating WHERE product_details.product_id = average_rating.product_id ORDER BY average_rating.average_rating DESC LIMIT 4, 4;
+	*/
+	date_default_timezone_set("Asia/Kuala_Lumpur");
+	$date = date('Y-m-d', time());
+
+	// echo "date" . $date;
+
+	$datetime1 = strtotime($date);
+	$datetime2 = strtotime('2020-10-25');
+
+	$secs = $datetime1 - $datetime2;// == <seconds between the two times>
+	$days = $secs / 86400;
+
+	if ($days <= 60) {
+		echo "days: $days <br>";
+		echo "NEW";
+	} else {
+		echo "days: $days <br>";
+		echo "OLD";
+	}
 ?>

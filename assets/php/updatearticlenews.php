@@ -12,10 +12,10 @@
  	}
 
  	// Get the values from POST
- 	$article_title = mysql_entities_fix_string($connection, $_POST["article_title"]);
- 	$article_desc = mysql_entities_fix_string($connection, $_POST["article_desc"]);
- 	$author_name = mysql_entities_fix_string($connection, $_POST["author_name"]);
- 	$article_content = mysql_entities_fix_string($connection, $_POST["article_content"]);
+ 	$article_title = $_POST["article_title"];
+ 	$article_desc = $_POST["article_desc"];
+ 	$author_name = $_POST["author_name"];
+ 	$article_content = $_POST["article_content"];
  	$image_link = mysql_entities_fix_string($connection, $_POST["image_link"]);
  	$date = mysql_entities_fix_string($connection, $_POST["date"]);
  	$category = mysql_entities_fix_string($connection, $_POST["category"]);

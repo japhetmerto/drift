@@ -321,7 +321,7 @@
 						</table>
 					  </div>
 					  <hr class="bg-white">
-					  <form class="needs-validation" action="checkout.html">
+					  <form class="needs-validation" action="assets/php/additem.php" method="post">
 					  <div>
 						  <label for="quantity">Quantity :</label>
 						  <input type="number" id="quantity" value="1" name="quantity" min="1" max="<?php echo $_SESSION["stock"]; ?>">
@@ -334,9 +334,12 @@
 							<?php echo $_SESSION["selectvariants"]; ?>
 						  </select>
 					  </div>
+					  	<input type="hidden" name="product_id" value="<?php echo $_SESSION["product_id"]; ?>">
+					  	<input type="hidden" name="product_name" value="<?php echo $_SESSION["product_name"]; ?>">
+					  	<input type="hidden" name="price" value="<?php echo $_SESSION["price"]; ?>">
 					  <div class="text-center pt-3">
-						  <button action="checkout.html" type="submit" class="btn btn-warning btn-md mr-1 mb-2">Buy now</button>
-							  <button action="shopping-cart.html" type="submit" formaction="shopping-cart.html" class="btn btn-warning btn-md mr-1 mb-2"><i class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
+					  		<button type="submit" class="btn btn-warning btn-md mr-1 mb-2" name="buynow" value="buy">Buy now</button>
+			  				<button type="submit" class="btn btn-warning btn-md mr-1 mb-2" name="addtocart" value="cart"><i class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
 						  </div>
 					  </form>
 			  </div>
