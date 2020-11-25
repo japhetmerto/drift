@@ -9,8 +9,8 @@
  	}
 
  	// First 4 Games
- 	$_SESSION["firstFourGamesAll"] = "";
- 	$query = "SELECT * FROM product_details, store_game, average_rating WHERE product_details.product_id = store_game.product_id AND product_details.product_id = average_rating.product_id ORDER BY product_details.product_name LIMIT 4";
+ 	$_SESSION["firstFourConsolesAll"] = "";
+ 	$query = "SELECT * FROM product_details, store_console, average_rating WHERE product_details.product_id = store_console.product_id AND product_details.product_id = average_rating.product_id ORDER BY product_details.product_name LIMIT 4";
 	$result = $connection -> query($query);
 
 	$rows = $result -> num_rows;
@@ -42,10 +42,8 @@
 
 		$productLabel = "";
 		$discountPrice = "";
-
-		if ($row["isMembershipExclusive"] == "True") {
-			$productLabel .= "Membership Only";
-		} elseif ($days <= 60) {
+		
+		if ($days <= 60) {
 			$productLabel .= "New";
 		} elseif ($row["discount_offer"] > 0) {
 			$productLabel .= $row["discount_offer"] . "% Off";
@@ -68,7 +66,7 @@
 			$ratingStars .= "<li class='fa fa-star disable'></li>";
 		}
 
-		$_SESSION["firstFourGamesAll"] .= "<div class='col-md-3 col-sm-6'>
+		$_SESSION["firstFourConsolesAll"] .= "<div class='col-md-3 col-sm-6'>
 				<div class='product-grid3'>
 					<div class='product-image3'>
 						<a href='productdetails.php?product_id=" . $row["product_id"] . "&type=" . $row["type"] . "&variants=" . str_replace(" ", "%20", $row['variants']) . "'>
@@ -95,9 +93,9 @@
 			</div>";
 	}
 
-	// First other 4 Games
-	$_SESSION["otherFourGamesAll"] = "";
- 	$query = "SELECT * FROM product_details, store_game, average_rating WHERE product_details.product_id = store_game.product_id AND product_details.product_id = average_rating.product_id ORDER BY product_details.product_name LIMIT 4, 999999999";
+	// First other 4 Console
+	$_SESSION["otherFourConsolesAll"] = "";
+ 	$query = "SELECT * FROM product_details, store_console, average_rating WHERE product_details.product_id = store_console.product_id AND product_details.product_id = average_rating.product_id ORDER BY product_details.product_name LIMIT 4, 999999999";
 	$result = $connection -> query($query);
 
 	$rows = $result -> num_rows;
@@ -106,9 +104,15 @@
 	$lastloop = $rows - (($column - 1) * 4);
 	$loop = 4;
 	$isOfffset = "";
+
+	if ($lastloop % 4 == 0) {
+		$isOfffset = False;
+	} else {
+		$isOfffset = True;
+	}
 	
 	for ($i = 0; $i < $column; ++$i ) {
-		$_SESSION["otherFourGamesAll"] .= "<div class='row mt-5 mb-5'>";
+		$_SESSION["otherFourConsolesAll"] .= "<div class='row mt-5 mb-5'>";
 
 		if ($i == ($column - 1) && $isOfffset == True) {
 			$loop = $lastloop;
@@ -142,9 +146,7 @@
 			$productLabel = "";
 			$discountPrice = "";
 
-			if ($row["isMembershipExclusive"] == "True") {
-			$productLabel .= "Membership Only";
-			} elseif ($days <= 60) {
+			if ($days <= 60) {
 				$productLabel .= "New";
 			} elseif ($row["discount_offer"] > 0) {
 				$productLabel .= $row["discount_offer"] . "% Off";
@@ -167,7 +169,7 @@
 				$ratingStars .= "<li class='fa fa-star disable'></li>";
 			}
 
-			$_SESSION["otherFourGamesAll"] .= "<div class='col-md-3 col-sm-6'>
+			$_SESSION["otherFourConsolesAll"] .= "<div class='col-md-3 col-sm-6'>
 					<div class='product-grid3'>
 						<div class='product-image3'>
 							<a href='productdetails.php?product_id=" . $row["product_id"] . "&type=" . $row["type"] . "&variants=" . str_replace(" ", "%20", $row['variants']) . "'>
@@ -194,7 +196,7 @@
 				</div>";
 		}
 
-		$_SESSION["otherFourGamesAll"] .= "</div>";
+		$_SESSION["otherFourConsolesAll"] .= "</div>";
 	}
 	
 ?>

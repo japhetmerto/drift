@@ -79,7 +79,14 @@
 	}
 	*/
 
-	/*
-	echo ceil(29 / 4);
-	*/
+	$row  = 17;
+	$column  = ceil($row / 4);
+	$lastloop = $row - (($column - 1) * 4);
+
+	if ($lastloop % 4 == 0) {
+		echo "divisible by 4";
+	} else {
+		echo "offset: $lastloop";
+	}
+	
 ?>
