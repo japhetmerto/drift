@@ -25,7 +25,7 @@
 	*/
 
 	/*
-	$number = 13.50;
+	$number = 13 / 4;
 	echo round($number, 0);
 	*/
 	/*
@@ -58,11 +58,12 @@
 
 	SELECT * FROM product_details, average_rating WHERE product_details.product_id = average_rating.product_id ORDER BY average_rating.average_rating DESC LIMIT 4, 4;
 	*/
+	/*
 	date_default_timezone_set("Asia/Kuala_Lumpur");
 	$date = date('Y-m-d', time());
-
+	*/
 	// echo "date" . $date;
-
+	/*
 	$datetime1 = strtotime($date);
 	$datetime2 = strtotime('2020-10-25');
 
@@ -76,4 +77,9 @@
 		echo "days: $days <br>";
 		echo "OLD";
 	}
+	*/
+
+	/*
+	echo ceil(29 / 4);
+	*/
 ?>
