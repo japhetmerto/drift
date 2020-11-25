@@ -1,9 +1,9 @@
 <?php
 	session_start();
 
-	require_once "assets/php/showconsolebestdeals.php";
-	require_once "assets/php/showconsolewhatshot.php";
-	require_once "assets/php/showallconsole.php";
+	require_once "assets/php/showaccessoriesbestdeals.php";
+	require_once "assets/php/showaccessorieshotselling.php";
+	require_once "assets/php/showallaccessories.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +25,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-    <title>Drift | Console</title>
+    <title>Drift | Accessories</title>
   </head>
   <body>
   
@@ -96,30 +96,50 @@
 		</ol>
 		<div class="carousel-inner">
 		  <div class="carousel-item active">
-			<img src="assets/img/content/carousel/xbox.jpg" width="100%" height="510">
+			<img src="assets/img/content/carousel/xbox-controller.jpg" width="100%" height="510">
 			<div class="container">
-			  <div class="carousel-caption">
-				<h3>TURN</h3>
-				<h1>YOUR</h1>
-				<h1>DREAM</h1>
-				<h3 class="mb-5">ON</h3>
-				<p><a class="btn btn-lg btn-warning mt-5" href="product-detail.html" role="button">Learn more</a></p>
+			  <div class="carousel-caption text-left text-dark h-75">
+				<h1 class="font-weight-bolder">Xbox Controller.</h1>
+				<h3 class=" font-weight-normal py-4">Greatness in Hand</h3>
+				  <div class="input-group">
+					<div class="input-group-prepend">
+					  <div class="input-group-text px-auto" id="btnGroupAddon2">
+					   <strong>RM249</strong>
+					  </div>
+					</div>
+					<a class="btn btn-warning" type="button" href="product-detail.html">Buy Now</a>
+				  </div>
+			  </div>
+			</div>
+		  </div>
+		  
+		  
+		  <div class="carousel-item">
+			<img src="assets/img/content/carousel/hardisk.jpg" width="100%" height="510">
+			<div class="container">
+			  <div class="carousel-caption text-left text-white h-75">
+				<h1 class="font-weight-bolder">Seagate Storage Expansion.</h1>
+				<h3 class=" font-weight-normal py-4">Store More</h3>
+				  <div class="input-group">
+					<div class="input-group-prepend">
+					  <div class="input-group-text px-auto" id="btnGroupAddon2">
+					   <strong>RM349</strong>
+					  </div>
+					</div>
+					<a class="btn btn-warning" type="button" href="product-detail.html">Buy Now</a>
+				  </div>
 			  </div>
 			</div>
 		  </div>
 		  
 		  <div class="carousel-item">
-			<img src="assets/img/content/carousel/ps5.png" width="100%" height="510">
+			<img src="assets/img/content/carousel/ps4-controller.jpg" width="100%" height="510">
 			<div class="container">
 			  <div class="carousel-caption">
-				<h1 class="text-dark">The Future is Now</h1>
+				<h1 class="text-white">Dualshock 4</h1>
 				<p><a class="btn btn-lg btn-warning" href="product-detail.html" role="button">Learn more</a></p>
 			  </div>
 			</div>
-		  </div>
-		  
-		  <div class="carousel-item">
-			<a href="product-detail.html"><img src="assets/img/content/carousel/nintendo.jpg" width="100%" height="510"></a>
 		  </div>
 		</div>
 		<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
@@ -144,10 +164,10 @@
 	<!--- Best Deal -->
 	  <div class="container">
 		<div class="row">
-			<?php echo $_SESSION["firstFourConsoleDeals"]; ?>
+			<?php echo $_SESSION["firstFourAccessoriesDeals"]; ?>
 		</div>
 		<div class="row mt-5">
-			<?php echo $_SESSION["otherFourConsoleDeals"]; ?>
+			<?php echo $_SESSION["otherFourAccessoriesDeals"]; ?>
 		</div>
 	</div>
 	<!--- End of Best Deal--->
@@ -167,18 +187,18 @@
 	
 	<!--- Item Header -->
 		<div class="container">
-		  <h1 class="text-center text-white pt-5">What's <b class="text-warning">Hot</b></h1>
-		  <p class="text-center text-white lead">People Are Loving These Items Now</p>
+		  <h1 class="text-center text-white pt-5"><b class="text-warning">Hot</b> Selling</h1>
+		  <p class="text-center text-white lead">These Items is People Favourite Now</p>
 		  <hr class="bg-white" style="margin-bottom:70px;">
 		</div>
 	
 	<!---- New Releases --->
 	 <div class="container">
 		<div class="row">
-			<?php echo $_SESSION["firstFourConsoleHot"]; ?>
+			<?php echo $_SESSION["firstFourAccessoriesHot"]; ?>
 		</div>
 		<div class="row mt-5">
-			<?php echo $_SESSION["otherFourConsoleHot"]; ?>
+			<?php echo $_SESSION["otherFourAccessoriesHot"]; ?>
 		</div>
 	</div>
 	<!--- End New Releases-->
@@ -199,17 +219,17 @@
 	
 	<!--- Item Header -->
 		<div class="container">
-		  <h1 class="text-center text-white pt-5">All <b class="text-warning">Console</b></h1>
-		  <p class="text-center text-white lead">Browse Our Huge Library of Console</p>
+		  <h1 class="text-center text-white pt-5">All <b class="text-warning">Accessories</b></h1>
+		  <p class="text-center text-white lead">Browse Our Huge Library of Accessories</p>
 		  <hr class="bg-white" style="margin-bottom:70px;">
 		</div>
 		
 	<!--- All Games --->
 	<div class="container">
 		<div class="row">
-			<?php echo $_SESSION["firstFourConsolesAll"]; ?>
+			<?php echo $_SESSION["firstFourAccessoriesAll"]; ?>
 		</div>
-			<?php echo $_SESSION["otherFourConsolesAll"]; ?>
+			<?php echo $_SESSION["otherFourAccessoriesAll"]; ?>
 	</div>
 	
 	<!--- Footer -->
@@ -231,8 +251,8 @@
                 <h6 class="text-white ml-3">OUR SERVICE</h6>
                 <div class="nav flex-column">
                   <a class="nav-link text-white" href="store.html">Games</a>
-                  <a class="nav-link text-white" href="store-console.html">Console</a>
-                  <a class="nav-link text-white" href="store-accessories.html">Accessories</a>
+                  <a class="nav-link text-white" href="store.html">Console</a>
+                  <a class="nav-link text-white" href="store.html">Accessories</a>
                 </div>
               </div>
 
