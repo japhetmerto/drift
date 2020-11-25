@@ -3,6 +3,7 @@
 	session_start();
 	require_once "assets/php/showhomewhatshot.php";
 	require_once "assets/php/showhomenextgengaming.php";
+	require_once "assets/php/showhomelatestnews.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -241,39 +242,7 @@
 		</header>
 		<hr class="bg-white">
 			<ul class="list-unstyled">
-			  <li class="media mb-5">
-				<img src="assets/img/content/product/kda.jpg" class="align-self-start mr-3" alt="kda" style="max-width:330px; max-height:200px">
-				<div class="media-body">
-					<h5 class="card-title text-white font-weight-bolder">KDA IS MAKING A NEW ALBUM</h5>
-					<p class="card-text"><small class="text-muted"><i class="fas fa-tag text-primary">9th November 2020</i></small></p>
-					<p class="card-text text-white">Donec vestibulum, odio a sagittis vestibulum, eros nunc consectetur ex, eu tincidunt neque lacus ac lorem. Mauris interdum urna id eros dignissim convallis. Aliquam convallis, nisi in facilisis tincidunt, augue nunc efficitur lectus, ut auctor orci purus sed neque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-					<a href="article.html">
-					<button type="button" class="btn btn-lg btn-transparent btn-outline-warning text-white">Read More</button>
-					</a>
-				</div>
-			  </li>
-			  <li class="media mb-5">
-				<img src="assets/img/content/product/robot.jpg" class="align-self-start mr-3" alt="kda" style="max-width:330px; max-height:200px">
-				<div class="media-body">
-					<h5 class="card-title text-white font-weight-bolder">REVENGE OF ROBOT 2 IS ON DEVELOPMENT</h5>
-					<p class="card-text"><small class="text-muted"><i class="fas fa-tag text-primary">9th November 2020</i></small></p>
-					<p class="card-text text-white">Donec vestibulum, odio a sagittis vestibulum, eros nunc consectetur ex, eu tincidunt neque lacus ac lorem. Mauris interdum urna id eros dignissim convallis. Aliquam convallis, nisi in facilisis tincidunt, augue nunc efficitur lectus, ut auctor orci purus sed neque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-					<a href="article.html">
-					<button type="button" class="btn btn-lg btn-transparent btn-outline-warning text-white">Read More</button>
-					</a>
-				</div>
-			  </li>
-			  <li class="media mb-5">
-				<img src="assets/img/content/product/warrior.jpg" class="align-self-start mr-3" alt="kda" style="max-width:330px; max-height:200px">
-				<div class="media-body">
-					<h5 class="card-title text-white font-weight-bolder">ELDEN RING IS BEATING DARK SOUL</h5>
-					<p class="card-text"><small class="text-muted"><i class="fas fa-tag text-primary">9th November 2020</i></small></p>
-					<p class="card-text text-white">Donec vestibulum, odio a sagittis vestibulum, eros nunc consectetur ex, eu tincidunt neque lacus ac lorem. Mauris interdum urna id eros dignissim convallis. Aliquam convallis, nisi in facilisis tincidunt, augue nunc efficitur lectus, ut auctor orci purus sed neque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-					<a href="article.html">
-					<button type="button" class="btn btn-lg btn-transparent btn-outline-warning text-white">Read More</button>
-					</a>
-				</div>
-			  </li>
+			  <?php echo $_SESSION["firstThreeNewsLatest"]; ?>
 			</ul>
 	   </div>
 	  <!--- End News-->
