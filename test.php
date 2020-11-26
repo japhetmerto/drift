@@ -79,6 +79,7 @@
 	}
 	*/
 
+	/*
 	$row  = 17;
 	$column  = ceil($row / 4);
 	$lastloop = $row - (($column - 1) * 4);
@@ -88,5 +89,16 @@
 	} else {
 		echo "offset: $lastloop";
 	}
+	*/
+
+	// Split the string to array ($image_link_arr[0];)
+
+	$itemname = "Persona 5 Royale - PlayStation Exclusive - Game";
+	$itemname_arr = array();
+	$itemname_arr = explode(" - ",$itemname);
+
+	echo "$itemname_arr[0] <br>";
+	echo "$itemname_arr[1] <br>";
+	echo "$itemname_arr[2] <br>";
 	
 ?>

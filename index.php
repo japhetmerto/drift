@@ -4,6 +4,8 @@
 	require_once "assets/php/showhomewhatshot.php";
 	require_once "assets/php/showhomenextgengaming.php";
 	require_once "assets/php/showhomelatestnews.php";
+	require_once "assets/php/showoffcanvascart.php";
+	require_once "assets/php/shownoofitems.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +59,7 @@
 		  <div class="nav-item">
 			<a class=" order-xl-last nav-link small bg" data-toggle="canvas" href="#bs-canvas-right" aria-expanded="false" aria-controls="bs-canvas-right" role="button">
 				<i style="color:white" class="fas fa-shopping-cart"></i>
-				<span class="badge badge-pill badge-warning">3</span>
+				<span class="badge badge-pill badge-warning"><?php echo $_SESSION["noitemscart"]; ?></span>
 			</a>
 		  </div>
 		</div>
@@ -338,42 +340,7 @@
 		</header>
 		<table class="table">
           	<tbody>
-            	<tr>
-              		<td><a href="#"><img src="assets/img/content/product/re3.jpg" width="100" height="100"></a>
-					</td>
-              		<td width="150" class="text-white">
-					<p>Resident Evil 3</p>
-					x1
-					</td>
-              		<td class="text-center">
-					<a href="#"><i class="far fa-trash-alt pb-2 text-white" style="padding-top:20px;"></i></a><br>
-					<span class="fw-500 text-warning">RM159</span>
-					</td>
-            	</tr>
-            	<tr>
-              		<td><a href="#"><img src="assets/img/content/product/tlou2.jpg" width="100" height="100"></a>
-					</td>
-              		<td width="150" class="text-white">
-					<p>The Last Of Us Part 2</p>
-					x1
-					</td>
-              		<td class="text-center">
-					<a href="#"><i class="far fa-trash-alt pb-2 text-white" style="padding-top:20px;"></i></a><br>
-					<span class="fw-500 text-warning">RM189</span>
-					</td>
-            	</tr>
-                <tr>
-              		<td><a href="#"><img src="assets/img/content/product/doom.jpg" width="100" height="100"></a>
-					</td>
-              		<td width="150" class="text-white">
-					<p>Doom Eternal</p>
-					x1
-					</td>
-              		<td class="text-center">
-					<a href="#"><i class="far fa-trash-alt pb-2 text-white" style="padding-top:20px;"></i></a><br>
-					<span class="fw-500 text-warning">RM199</span>
-					</td>
-            	</tr>
+            	<?php echo $_SESSION["showAllItemsOffCanvas"]; ?>
           	</tbody>
         </table>
 		<div class="container">

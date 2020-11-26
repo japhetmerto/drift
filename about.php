@@ -93,7 +93,14 @@ Jay
 	  <hr class="bg-white" style="margin-bottom:70px;">
 	
 	<center>
-	<p style="color:white">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos<br>dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. <br><br><br></p>
+	<p style="color:white">
+		We are a group of passionate people that love games. We started this website on 2020 an have over 1 million visitors since the website first launched
+		<br>
+		We sell varieties of gaming goods including games, console, and gaming accessories with reasonable and affordable price for our customers
+		<br>
+		Drift Website is No 1 destination for gamers to find gaming related goods at the best price
+		<br><br><br>
+	</p>
 	</center>
 	<hr class="bg-white" style="margin-bottom:70px;">
 	</div>
@@ -102,7 +109,14 @@ Jay
 	  <h3 class="text-center text-white pt-5">Our <b class="text-warning">Goal</b></h3>
 	  <hr class="bg-white" style="margin-bottom:70px;">
 	  <center>
-	<p style="color:white">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos<br>dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. <br><br><br></p>
+	<p style="color:white">
+		Our goals is to provide our customers with great service and the best surfing experience in our website.
+		<br>
+		We are dedicated to bring the best gaming goods to customer for a very reasonable price
+		<br>
+		We also aim to be the hub for all the gamers from all around the world to fulfill their gaming needs.
+		<br><br><br>
+	</p>
 	</center>
 	<hr class="bg-white" style="margin-bottom:70px;">
 	</div>
@@ -194,8 +208,8 @@ Jay
 			</div>
 		</div>
 	</div>
-		<br><br>
-		
+	
+	<br><br>
 	
 	<!--- Footer -->
 	<footer class="footer pt-5 footer-dark" style="background: linear-gradient(to bottom, #1a1c1a 0%, #1a1c1a 100%);">

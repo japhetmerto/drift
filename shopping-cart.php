@@ -1,3 +1,9 @@
+<?php
+	session_start();
+
+	require_once "assets/php/showshoppingcartitems.php";
+	require_once "assets/php/showshoppingcartsummary.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,8 +25,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 	
-	
-    <title>Drift | Checkout</title>
+    <title>Drift | Shopping Cart</title>
   </head>
   <body>
   
@@ -82,245 +87,84 @@
     </nav>
 	<!--- End NavBar -->
 	
-	<!------ Checkout ------>
 	<section class="content-section" style="background: linear-gradient(to bottom, #000000 0%,#4f4c4c 100%);">
-    
-	<div class="container text-white">
-	  <div class="py-5 text-center">
-		<img class="d-block mx-auto mb-4" src="assets/img/favicons/apple-touch-icon-57x57.png" alt="" width="72" height="72">
-		<h2><b class="text-warning">Checkout</b> form</h2>
-	  </div>
+	
+	<!--Section: Block Content-->
+	<div class="container">
 
-	  <div class="row g-3">
-		<div class="col-md-5 col-lg-4 order-md-last">
-		  <h4 class="d-flex justify-content-between align-items-center mb-3">
-			<span class="text-white">Your <b class="text-warning">Cart</b></span>
-			<span class="badge bg-secondary rounded-pill">2</span>
-		  </h4>
-		  <ul class="list-group mb-3">
-			<li class="list-group-item d-flex justify-content-between lh-sm">
-			  <div>
-				<h6 class="my-0 text-dark">The Last Of Us Part 2</h6>
-				<small class="text-muted">x1</small>
-			  </div>
-			  <span class="text-muted">RM189.00</span>
-			</li>
-			<li class="list-group-item d-flex justify-content-between lh-sm">
-			  <div>
-				<h6 class="my-0 text-dark">Resident Evil 3</h6>
-				<small class="text-muted">x1</small>
-			  </div>
-			  <span class="text-muted">RM159.00</span>
-			</li>
-			<li class="list-group-item d-flex justify-content-between bg-light">
-			  <div class="text-success">
-				<h6 class="my-0">Promo code</h6>
-				<small>None</small>
-			  </div>
-			  <span class="text-success">RM0.00</span>
-			</li>
-			<li class="list-group-item d-flex justify-content-between bg-light">
-			  <div class="text-success">
-				<h6 class="my-0">Discount</h6>
-			  </div>
-			  <span class="text-success">RM0.00</span>
-			</li>
-			<li class="list-group-item d-flex justify-content-between bg-light">
-			  <div class="text-danger">
-				<h6 class="my-0">Tax</h6>
-			  </div>
-			  <span class="text-danger">RM11.73</span>
-			</li>
-			<li class="list-group-item d-flex justify-content-between bg-light">
-			  <div class="text-danger">
-				<h6 class="my-0">Shipping</h6>
-			  </div>
-			  <span class="text-danger">RM5.00</span>
-			</li>
-			<li class="list-group-item d-flex justify-content-between text-dark">
-			  <span>Total (RM)</span>
-			  <strong>RM364.73</strong>
-			</li>
-		  </ul>
+	  <!--Grid row-->
+	  <div class="row">
 
-		  <form class="needs-validation" novalidate>
-			<div class="input-group is-invalid">
-			  <div class="input-group-prepend">
-				<input type="text" class=" input-group-text form-control is-invalid" aria-describedby="validatedInputGroupPrepend" placeholder="Promo Code" required>
-			  </div>
-			  <button type="submit" class="btn btn-secondary">Redeem</button>
-			</div>
-			<div class="invalid-feedback">
-			  Incorrect Promo Code
-			</div>
-		  </form>
-		</div>
+		<!--Grid column-->
+		<div class="col-lg-8">
+		<h3 class="pt-5 pl-3 text-white"> Your <b class="text-warning">Cart</b></h3>
+		<hr class="bg-white">
 		
-		<div class="col-md-7 col-lg-8">
-		  <h4 class="mb-3 ">Billing <b class="text-warning">Address</b></h4>
-		  <form class="needs-validation" novalidate action="order-placed.html">
-			<div class="row g-3">
-			  <div class="col-sm-6">
-				<label for="firstName" class="form-label">First name</label>
-				<input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-				<div class="invalid-feedback">
-				  Valid first name is required.
-				</div>
-			  </div>
+		  <!-- Card -->
+		  <div class="card wish-list mb-3 border bg-transparent text-white">
+			<div class="card-body">
 
-			  <div class="col-sm-6">
-				<label for="lastName" class="form-label">Last name</label>
-				<input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-				<div class="invalid-feedback">
-				  Valid last name is required.
-				</div>
-			  </div>
-
-			  <div class="col-12">
-				<label for="username" class="form-label">Username</label>
-				<div class="input-group">
-				  <span class="input-group-text">@</span>
-				  <input type="text" class="form-control" id="username" placeholder="Username" required>
-				<div class="invalid-feedback">
-					Your username is required.
-				  </div>
-				</div>
-			  </div>
-
-			  <div class="col-12">
-				<label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-				<input type="email" class="form-control" id="email" placeholder="you@example.com" required>
-				<div class="invalid-feedback">
-				  Please enter a valid email address for shipping updates.
-				</div>
-			  </div>
-
-			  <div class="col-12">
-				<label for="address" class="form-label">Address</label>
-				<input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-				<div class="invalid-feedback">
-				  Please enter your shipping address.
-				</div>
-			  </div>
-
-			  <div class="col-12">
-				<label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
-				<input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-			  </div>
-
-			  <div class="form-group col-md-4">
-				  <label for="validationCustom03">Country</label>
-				  <select class="custom-select" id="validationCustom03" required>
-					<option selected disabled value="">Choose...</option>
-					<option>Malaysia</option>
-					<option>China</option>
-					<option>India</option>
-					<option>Phillipines</option>
-					<option>USA</option>
-				  </select>
-				  <div class="invalid-feedback">
-					Please select a valid state.
-				  </div>
-			  </div>
-
-			  <div class="form-group col-md-4">
-				  <label for="validationCustom04">State</label>
-				  <select class="custom-select" id="validationCustom04" required>
-					<option selected disabled value="">Choose...</option>
-					<option>Selangor</option>
-					<option>Kedah</option>
-					<option>Pulau Pinang</option>
-					<option>Terengganu</option>
-					<option>Kelantan</option>
-				  </select>
-				  <div class="invalid-feedback">
-					Please select a valid state.
-				  </div>
-			  </div>
-
-			  <div class="col-md-3">
-				<label for="zip" class="form-label">Zip</label>
-				<input type="text" class="form-control" id="zip" placeholder="" required>
-				<div class="invalid-feedback">
-				  Zip code required.
-				</div>
-			  </div>
+			  <h5 class="mb-4">Cart (<span class="text-warning"><?php echo $_SESSION["no_of_items"]; ?></span> item(s))</h5>
+			  <?php echo $_SESSION["showAllItems"]; ?>
 			</div>
+		  </div>
+		  <!-- Card -->
 
-			<hr class="my-4 bg-white">
-
-			<div class="form-check">
-			  <input type="checkbox" class="form-check-input" id="same-address">
-			  <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
-			</div>
-
-			<div class="form-check">
-			  <input type="checkbox" class="form-check-input" id="save-info">
-			  <label class="form-check-label" for="save-info">Save this information for next time</label>
-			</div>
-
-			<hr class="my-4 bg-white">
-
-			<h4 class="mb-3 text-warning">Payment</h4>
-
-			<div class="my-3">
-			  <div class="form-check">
-				<input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-				<label class="form-check-label" for="credit">Credit card</label>
-			  </div>
-			  <div class="form-check">
-				<input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-				<label class="form-check-label" for="debit">Debit card</label>
-			  </div>
-			  <div class="form-check">
-				<input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-				<label class="form-check-label" for="paypal">PayPal</label>
-			  </div>
-			</div>
-
-			<div class="row gy-3">
-			  <div class="col-md-6">
-				<label for="cc-name" class="form-label">Name on card</label>
-				<input type="text" class="form-control" id="cc-name" placeholder="" required>
-				<small class="text-muted">Full name as displayed on card</small>
-				<div class="invalid-feedback">
-				  Name on card is required
-				</div>
-			  </div>
-
-			  <div class="col-md-6">
-				<label for="cc-number" class="form-label">Credit card number</label>
-				<input type="text" class="form-control" id="cc-number" placeholder="" required>
-				<div class="invalid-feedback">
-				  Credit card number is required
-				</div>
-			  </div>
-
-			  <div class="col-md-3">
-				<label for="cc-expiration" class="form-label">Expiration</label>
-				<input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-				<div class="invalid-feedback">
-				  Expiration date required
-				</div>
-			  </div>
-
-			  <div class="col-md-3">
-				<label for="cc-cvv" class="form-label">CVV</label>
-				<input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-				<div class="invalid-feedback">
-				  Security code required
-				</div>
-			  </div>
-			</div>
-
-			<hr class="my-4 bg-white">
-
-			<button class="btn btn-warning btn-lg btn-block mb-5" type="submit">Place Order</button>
-		  </form>
 		</div>
+		<!--Grid column-->
+
+		<!--Grid column-->
+		<div class="col-lg-4">
+
+		  <h3 class="mb-3 pt-5 text-white">Cart <b class="text-warning">Summary</b></h3>
+		  <!-- Card -->
+		  <div class="card mb-3 bg-transparent border-white">
+			<div class="card-body text-white">
+			
+			  <ul class="list-group list-group-flush">
+				<li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0 bg-transparent">
+				  Full Price
+				  <span>RM <?php echo $_SESSION["full_price"]; ?></span>
+				</li>
+				<li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0 bg-transparent">
+				  Discount
+				  <span>RM <?php echo $_SESSION["discount"]; ?></span>
+				</li>
+				<li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0 bg-transparent">
+				  Tax
+				  <span>RM <?php echo $_SESSION["tax"]; ?></span>
+				</li>
+				<li class="list-group-item d-flex justify-content-between align-items-center border-white px-0 bg-transparent">
+				  Shipping
+				  <span>RM <?php echo $_SESSION["shipping"]; ?></span>
+				</li>
+				<li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3 bg-transparent">
+				  <div>
+					<strong>The total amount of</strong>
+					<strong>
+					  <p class="mb-0">(including TAX)</p>
+					</strong>
+				  </div>
+				  <span><strong class="text-warning">RM <?php echo $_SESSION["total_amount"]; ?></strong></span>
+				</li>
+			  </ul>
+
+			  <a href="checkout.php" type="button" class="btn btn-warning btn-block waves-effect waves-light">Checkout</a>
+
+			</div>
+		  </div>
+		  <!-- Card -->
+
+		</div>
+		<!--Grid column-->
+
 	  </div>
-	 </div>
-	 <!----- End Checkout ------>
+	  <!--Grid row-->
+
+	</div>
+	<!--Section: Block Content-->
+	
+	</section>
 	
 	<!--- Footer -->
 	<footer class="footer pt-5 footer-dark" style="background: linear-gradient(to bottom, #1a1c1a 0%, #1a1c1a 100%);">
@@ -459,7 +303,7 @@
 		<p>Days Left : <b class="text-warning">365 Days Left</b></p>
 		<hr class="bg-white">
 		  <div class="row" style="margin-left:50px;">
-			<a href="checkout.html" class="btn btn-lg btn-outline-light">Renew</a>
+			<a href="shopping-cart.html" class="btn btn-lg btn-outline-light">Renew</a>
 			<a href="#" class="btn btn-lg btn-outline-light ml-3">Cancel</a>
 		  </div>
 		</div>

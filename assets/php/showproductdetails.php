@@ -39,6 +39,7 @@
 		$_SESSION["product_description"] = $row["product_description"];
 		$_SESSION["ratings"] = $row["ratings"];
 		$_SESSION["stock"] = $row["stock"];
+		$_SESSION["real_price"] = $row["price"];
 		$_SESSION["price"] = number_format((float)($row["price"] - ($row["discount_offer"] / 100) * $row["price"]), 2, '.', '');
 		$_SESSION["discount_offer"] = $row["discount_offer"];
 		$_SESSION["discount_price"] = $row["discount_price"];
@@ -109,6 +110,7 @@
 		$_SESSION["product_description"] = $row["product_description"];
 		$_SESSION["ratings"] = $row["ratings"];
 		$_SESSION["stock"] = $row["stock"];
+		$_SESSION["real_price"] = $row["price"];
 		$_SESSION["price"] = number_format((float)($row["price"] - ($row["discount_offer"] / 100) * $row["price"]), 2, '.', '');
 		$_SESSION["discount_offer"] = $row["discount_offer"];
 		$_SESSION["discount_price"] = $row["discount_price"];
@@ -179,6 +181,7 @@
 		$_SESSION["product_description"] = $row["product_description"];
 		$_SESSION["ratings"] = $row["ratings"];
 		$_SESSION["stock"] = $row["stock"];
+		$_SESSION["real_price"] = $row["price"];
 		$_SESSION["price"] = number_format((float)($row["price"] - ($row["discount_offer"] / 100) * $row["price"]), 2, '.', '');
 		$_SESSION["discount_offer"] = $row["discount_offer"];
 		$_SESSION["discount_price"] = $row["discount_price"];
