@@ -65,7 +65,7 @@
 			$_SESSION["postcode"] = $row["postcode"];
 			$_SESSION["district"] = $row["district"];
 			$_SESSION["state"] = $row["state"];
-			$_SESSION["image_link"] = $row["image_link"];
+			$_SESSION["image_link_admin"] = $row["image_link"];
 
 			// Redirect to admin.php
  			header("Location: ../../admin.php");

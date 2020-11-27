@@ -1,6 +1,10 @@
 <?php
     require_once "assets/php/utilities.php";
     session_start();
+    
+    if (isset($_SESSION["username"]) && $_SESSION["user_type"] != "Admin") {
+      header("Location: index.php");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,12 +99,12 @@ div.content {
 <body>
 <div class="sidebar max-width auto" style="color:#000;background-color:#bdc3c7">
 	<center>
-  <h3>Hello, <?php showAdminName(); ?></h3>
-  <a href="admindash.html" ><i class="fa fa-dashboard"></i>&nbsp;&nbsp;Home</a>
-  <a href="adminartnw.html"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;Article & News</a>
-  <a href="adminprdlist.html"><i class="fa fa-list-ul"></i>&nbsp;&nbsp;Product List</a>
-  <a href="adminorder.html"><i class='fas fa-pencil-alt'></i>&nbsp;&nbsp;Order Stock</a>
-  <a class="active" href="adminprofile.html"><i class='fas fa-user-circle'></i>&nbsp;&nbsp;User Profile</a>
+  <h3>Hello, <?php echo $_SESSION["firstname"] ?></h3>
+  <a href="admin.php" ><i class="fa fa-dashboard"></i>&nbsp;&nbsp;Home</a>
+  <a href="adminarticlenews.php"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;Article & News</a>
+  <a href="adminproductlist.php"><i class="fa fa-list-ul"></i>&nbsp;&nbsp;Product List</a>
+  <a href="adminorderstock.php"><i class='fas fa-pencil-alt'></i>&nbsp;&nbsp;Order Stock</a>
+  <a class="active" href="adminprofile.php"><i class='fas fa-user-circle'></i>&nbsp;&nbsp;User Profile</a>
   <a href="assets/php/logout.php"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Logout</a>
   </center>
 </div>
@@ -134,7 +138,7 @@ div.content {
 	<br>
   </div>
   <div style="flex: 50%;padding: 10px;" style="background-color:#bbb;">
-    <img class="pic-1" src="<?php echo $_SESSION['image_link']; ?>" width="350" height="350">
+    <img class="pic-1" src="<?php echo $_SESSION['image_link_admin']; ?>" width="350" height="350">
   </div>
 </div>
 </body>

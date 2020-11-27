@@ -18,6 +18,6 @@
 	for ($j = 0; $j < $rows; ++$j) {
 		$row = $result -> fetch_array(MYSQLI_ASSOC);
 
-		$_SESSION["newsArchives"] .= "<li><a href='#' class='text-white'>{$row["MONTH"]} {$row["YEAR"]}</a></li>";
+		$_SESSION["newsArchives"] .= "<li><a href='newsarchive.php?month={$row["MONTH"]}&year={$row["YEAR"]}' class='text-white'>{$row["MONTH"]} {$row["YEAR"]}</a></li>";
 	}
 ?>

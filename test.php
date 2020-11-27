@@ -93,6 +93,7 @@
 
 	// Split the string to array ($image_link_arr[0];)
 
+	/*
 	$itemname = "Persona 5 Royale - PlayStation Exclusive - Game";
 	$itemname_arr = array();
 	$itemname_arr = explode(" - ",$itemname);
@@ -100,5 +101,25 @@
 	echo "$itemname_arr[0] <br>";
 	echo "$itemname_arr[1] <br>";
 	echo "$itemname_arr[2] <br>";
-	
+	*/
+
+	/*
+	SELECT * FROM product_details, store_game, average_rating 
+WHERE product_details.product_id = store_game.product_id 
+AND product_details.product_id = average_rating.product_id 
+AND store_game.product_name LIKE '%Death%' 
+ORDER BY product_details.product_name;
+
+SELECT * FROM product_details, store_console, average_rating 
+WHERE product_details.product_id = store_console.product_id 
+AND product_details.product_id = average_rating.product_id 
+AND store_console.product_name LIKE '%PlayStation%' 
+ORDER BY product_details.product_name;
+*/
+	$month = 1;
+	$date = new DateTime('now');
+	$date -> modify("+$month month"); // or you can use '-90 day' for deduct
+	$date = $date->format('Y-m-d');
+
+	echo "date: $date";
 ?>

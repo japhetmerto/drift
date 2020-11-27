@@ -5,7 +5,11 @@
 	$_SESSION["type"] = $_GET["type"];
 	$_SESSION["variants"] = $_GET["variants"];
 
-	require_once 'assets/php/showupdateproduct.php'
+	require_once 'assets/php/showupdateproduct.php';
+
+	if (isset($_SESSION["username"]) && $_SESSION["user_type"] != "Admin") {
+      header("Location: index.php");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,7 +107,7 @@ div.content {
 <body>
 <div class="sidebar max-width auto" style="color:#000;background-color:#bdc3c7">
 	<center>
-    <h3>Hello, Anon</h3>
+    <h3>Hello, <?php echo $_SESSION["firstname"] ?></h3>
   <a href="admin.php" ><i class="fa fa-dashboard"></i>&nbsp;&nbsp;Home</a>
   <a href="adminarticlenews.php"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;Article & News</a>
   <a class="active" href="adminproductlist.php"><i class="fa fa-list-ul"></i>&nbsp;&nbsp;Product List</a>

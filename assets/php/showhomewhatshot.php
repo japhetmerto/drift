@@ -75,10 +75,7 @@
 							<img class='pic-1' src='assets/img/content/product/$lastItem'>
 							<img class='pic-2' src='assets/img/content/product/$lastItem'>
 						</a>
-						<ul class='social'>
-							<li><a href='product-detail.html'><i class='fa fa-shopping-bag'></i></a></li>
-							<li><a href='product-detail.html'><i class='fa fa-shopping-cart'></i></a></li>
-						</ul>
+						 
 						<span class='product-new-label'>$productLabel</span>
 					</div>
 					<div class='product-content'>
@@ -162,10 +159,7 @@
 							<img class='pic-1' src='assets/img/content/product/$lastItem'>
 							<img class='pic-2' src='assets/img/content/product/$lastItem'>
 						</a>
-						<ul class='social'>
-							<li><a href='product-detail.html'><i class='fa fa-shopping-bag'></i></a></li>
-							<li><a href='product-detail.html'><i class='fa fa-shopping-cart'></i></a></li>
-						</ul>
+						 
 						<span class='product-new-label'>$productLabel</span>
 					</div>
 					<div class='product-content'>

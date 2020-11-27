@@ -10,6 +10,8 @@
 
  	// First 4 Games
  	$_SESSION["firstFourGamesNew"] = "";
+
+ 	// check if membership
  	$query = "SELECT * FROM product_details, store_game, average_rating WHERE product_details.product_id = store_game.product_id AND product_details.product_id = average_rating.product_id ORDER BY DATE(product_details.date_release) DESC LIMIT 4";
 	$result = $connection -> query($query);
 
@@ -70,10 +72,7 @@
 							<img class='pic-1' src='assets/img/content/product/$lastItem'>
 							<img class='pic-2' src='assets/img/content/product/$lastItem'>
 						</a>
-						<ul class='social'>
-							<li><a href='product-detail.html'><i class='fa fa-shopping-bag'></i></a></li>
-							<li><a href='product-detail.html'><i class='fa fa-shopping-cart'></i></a></li>
-						</ul>
+						 
 						<span class='product-new-label'>$productLabel</span>
 					</div>
 					<div class='product-content'>
@@ -152,10 +151,7 @@
 							<img class='pic-1' src='assets/img/content/product/$lastItem'>
 							<img class='pic-2' src='assets/img/content/product/$lastItem'>
 						</a>
-						<ul class='social'>
-							<li><a href='product-detail.html'><i class='fa fa-shopping-bag'></i></a></li>
-							<li><a href='product-detail.html'><i class='fa fa-shopping-cart'></i></a></li>
-						</ul>
+						 
 						<span class='product-new-label'>$productLabel</span>
 					</div>
 					<div class='product-content'>

@@ -35,7 +35,7 @@
 		}
 
 		$_SESSION["newproduct_name"] = $newProduct_name;
-
+		$_SESSION["isMembershipExclusive"] = $row["isMembershipExclusive"];
 		$_SESSION["product_description"] = $row["product_description"];
 		$_SESSION["ratings"] = $row["ratings"];
 		$_SESSION["stock"] = $row["stock"];

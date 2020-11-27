@@ -53,7 +53,7 @@ Jay
 		  <p style="color:white;">We received your order!<br>Thank You For Choosing Us!</p>
 		  <br>
 		  
-		  <a class="btn btn-sm btn-warning text-black mr-2" href="signin.html" data-toggle="modal" data-target="#userLogin">Go to Main Menu</a>
+		  <a class="btn btn-sm btn-warning text-black mr-2" href="index.php" data-toggle="modal" data-target="#userLogin">Go to Main Menu</a>
 		  
 		  <br>
 		  </div>

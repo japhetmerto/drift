@@ -7,8 +7,10 @@
  	if ($connection -> connect_error) {
  		die("Database Connection Error");
  	}
+
  	$_SESSION["noitemscart"] = "";
- 	if (isset($_SESSION["username"])) {	
+
+ 	if (isset($_SESSION["username"]) && $_SESSION["user_type"] != "Admin") {	
 		// Get the cart id
 		$query = "SELECT * FROM cart WHERE user_id = '{$_SESSION["user_id"]}'";
 		$result = $connection -> query($query);
