@@ -21,7 +21,7 @@
 		$articleDate = date("j M Y", strtotime($row["date"]));
 
 		$_SESSION["showAllNews"] .= "<li class='media mb-5'>
-				<img src='assets/img/bg/{$row["image_link"]}' class='align-self-start mr-3' alt='kda' style='max-width:330px; max-height:200px'>
+				<img src='assets/img/bg/{$row["image_link"]}' class='align-self-start mr-3' alt='kda' style='width:330px; max-height:200px'>
 				<div class='media-body'>
 					<h5 class='card-title text-white font-weight-bolder'>{$row["article_title"]}</h5>
 					<p class='card-text'><small class='text-muted'><i class='fas fa-tag text-primary'>$articleDate</i></small></p>

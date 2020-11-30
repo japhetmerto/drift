@@ -104,6 +104,12 @@
 	$loop = 4;
 	$isOfffset = "";
 	
+	if ($lastloop % 4 == 0) {
+		$isOfffset = False;
+	} else {
+		$isOfffset = True;
+	}
+	
 	for ($i = 0; $i < $column; ++$i ) {
 		$_SESSION["otherFourGamesAll"] .= "<div class='row mt-5 mb-5'>";
 
