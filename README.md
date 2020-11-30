@@ -1,7 +1,6 @@
-# drift
- Web Design Coursework
+# drift - Web Design Coursework
 
------------- Instruction ----------
+## Instruction
 1. Create a database and name it 'drift'
 2. Import drift_v5_9.sql
 3. You can start surfing the website now
@@ -10,21 +9,30 @@
 - username: admin
 - password: qwerty
 
------- Note -------
+## Note
 1. There is a lot of product in this website and due to constraint of time we can only write short product description
 for some of the product
 2. But to see what the website could do for product-detail page please see the following product
 
-Games
+### Games
 - CyberPunk 2077
 - Ghost of Tushima
 - Marvel Avengers
 - Minecraft
 
-Console
+### Console
 - PS5
 - Nintendo Switch
 
-Accessories
+### Accessories
 - Xbox Wireless Controller
 - DualShock 4 Wireless Controller
+
+## Group Member Contribution
+### Front end
+- Shamsul Bin Majid (HTML, CSS, JavaScript, README)
+- Jagaanathan A/L Kathiravelu (HTML, CSS, JavaScript)
+
+### Back end
+- Japhet Mert Catilo Obsioma (PHP, SQL, HTML, JavaScript)
+- Chong Wei Shen (Database, Data Entry)
