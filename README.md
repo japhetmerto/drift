@@ -30,11 +30,11 @@ for some of the product
 
 ## Group Member Contribution
 ### Front end
-- Shamsul Bin Majid (HTML, CSS, JavaScript, README)
+- [Shamsul Bin Majid](https://github.com/ShmslMjd) (HTML, CSS, JavaScript, README)
 - Jagaanathan A/L Kathiravelu (HTML, CSS, JavaScript)
 
 ### Back end
-- Japhet Mert Catilo Obsioma (PHP, SQL, HTML, JavaScript)
+- [Japhet Mert Catilo Obsioma](https://github.com/japhetobsioma) (PHP, SQL, HTML, JavaScript)
 - Chong Wei Shen (Database, Data Entry)
 
 ## Screenshots
